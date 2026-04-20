@@ -4,58 +4,113 @@
 
 # Conflux-Union
 
-**A server dedicated to redstone survival technology and third-party program development related to Minecraft.**
+**专注于 Minecraft 红石生存科技与第三方程序开发的社区。**
 
-[![Members](https://img.shields.io/badge/dynamic/json?label=Members&query=%24.members&url=https%3A%2F%2Fraw.githubusercontent.com%2FConflux-Union%2F.github%2Fmain%2Fprofile%2Fstats.json&color=blue)](https://github.com/orgs/Conflux-Union/people)
-[![Public Repos](https://img.shields.io/badge/dynamic/json?label=Public%20Repos&query=%24.public_repos&url=https%3A%2F%2Fraw.githubusercontent.com%2FConflux-Union%2F.github%2Fmain%2Fprofile%2Fstats.json&color=green)](https://github.com/orgs/Conflux-Union/repositories)
-[![Commits (30d)](https://img.shields.io/badge/dynamic/json?label=Commits%20(30d)&query=%24.recent_commits&url=https%3A%2F%2Fraw.githubusercontent.com%2FConflux-Union%2F.github%2Fmain%2Fprofile%2Fstats.json&color=orange)](#-member-contribution-ranking-last-30-days)
+[![成员数](https://img.shields.io/badge/dynamic/json?label=%E6%88%90%E5%91%98&query=%24.members&url=https%3A%2F%2Fraw.githubusercontent.com%2FConflux-Union%2F.github%2Fmain%2Fprofile%2Fstats.json&color=blue)](https://github.com/orgs/Conflux-Union/people)
+[![公开仓库](https://img.shields.io/badge/dynamic/json?label=%E5%85%AC%E5%BC%80%E4%BB%93%E5%BA%93&query=%24.public_repos&url=https%3A%2F%2Fraw.githubusercontent.com%2FConflux-Union%2F.github%2Fmain%2Fprofile%2Fstats.json&color=green)](https://github.com/orgs/Conflux-Union/repositories)
+[![近90天提交](https://img.shields.io/badge/dynamic/json?label=%E8%BF%9190%E5%A4%A9%E6%8F%90%E4%BA%A4&query=%24.recent_commits&url=https%3A%2F%2Fraw.githubusercontent.com%2FConflux-Union%2F.github%2Fmain%2Fprofile%2Fstats.json&color=orange)](#-成员贡献榜近-90-天)
 
 </div>
 
 ---
 
-## About Us
+## 关于我们
 
-Conflux-Union is a community-driven organization focused on:
+Conflux-Union 是一个由社区驱动的组织,专注于:
 
-- **Minecraft Redstone Survival** — advanced redstone engineering in survival contexts
-- **Third-Party Tooling** — mods, plugins, servers, and utilities built around Minecraft
-- **Open Collaboration** — members building and shipping together in the open
+- **Minecraft 红石生存** — 在原版生存环境下进行红石工程实践
+- **第三方工具开发** — 围绕 Minecraft 的模组、插件、服务端与周边工具
+- **开放协作** — 成员们在公开仓库中共同构建、迭代与交付
 
 ---
 
-## Organization Stats
+## 组织概况
 
 <!-- STATS:START -->
-| Metric | Value |
+| 指标 | 数值 |
 |---|---|
-| Commits in last 30 days | **90** |
-| Public repositories | **26** |
-| Active repositories (30d) | **7** |
-| Members | **9** |
+| 近 90 天提交总数 | **282** |
+| 公开仓库总数 | **26** |
+| 活跃仓库数(90d) | **14** |
+| 成员总数 | **9** |
 
 <!-- STATS:END -->
 
 ---
 
-## Member Contribution Ranking (Last 30 Days)
+## 近 90 天每日提交趋势
+
+<!-- CHART_DAILY:START -->
+```mermaid
+xychart-beta
+    title "近 90 天每周提交数(按自然周聚合)"
+    x-axis ["01-21", "01-27", "02-03", "02-10", "02-17", "02-24", "03-03", "03-10", "03-17", "03-24", "03-31", "04-07", "04-14"]
+    y-axis "提交数" 0 --> 69
+    bar [3, 7, 27, 14, 23, 15, 58, 39, 19, 2, 52, 7, 16]
+    line [3, 7, 27, 14, 23, 15, 58, 39, 19, 2, 52, 7, 16]
+```
+
+<!-- CHART_DAILY:END -->
+
+---
+
+## 成员贡献榜(近 90 天)
 
 <!-- RANKING:START -->
-| Rank | Member | Commits |
+| 排名 | 成员 | 提交数 |
 |---:|:---|---:|
-| 🥇 | [@Trirrin](https://github.com/Trirrin) | 49 |
-| 🥈 | [@dependabot[bot]](https://github.com/dependabot[bot]) _(outside contributor)_ | 17 |
-| 🥉 | [@Chonghua-05](https://github.com/Chonghua-05) | 13 |
+| 🥇 | [@Trirrin](https://github.com/Trirrin) | 176 |
+| 🥈 | [@Chonghua-05](https://github.com/Chonghua-05) | 36 |
+| 🥉 | [@dependabot\[bot\]](https://github.com/dependabot[bot]) _(外部贡献者)_ | 29 |
 | #4 | [@husbvt](https://github.com/husbvt) | 11 |
+| #5 | [@Jog-Ming](https://github.com/Jog-Ming) | 11 |
+| #6 | [@VY-L](https://github.com/VY-L) | 9 |
+| #7 | [@mgHurryo](https://github.com/mgHurryo) | 5 |
+| #8 | [@halfban0](https://github.com/halfban0) _(外部贡献者)_ | 3 |
+| #9 | [@Ftimever](https://github.com/Ftimever) | 1 |
+| #10 | [@github-actions\[bot\]](https://github.com/github-actions[bot]) _(外部贡献者)_ | 1 |
 
 <!-- RANKING:END -->
 
 ---
 
+## 语言占比(按活跃仓库加权)
+
+<!-- LANGUAGES:START -->
+```mermaid
+pie showData
+    title 语言占比(字节数,活跃仓库加权)
+    "Kotlin" : 65710189
+    "Vue" : 36359907
+    "Go" : 32772094
+    "Java" : 24842775
+    "TypeScript" : 15264697
+    "Python" : 5286152
+    "JavaScript" : 2311835
+    "CSS" : 1965289
+    "Others" : 1748592
+```
+
+| 排名 | 语言 | 占比 | 字节数 |
+|---:|:---|---:|---:|
+| #1 | Kotlin | 35.3% | 65,710,189 |
+| #2 | Vue | 19.5% | 36,359,907 |
+| #3 | Go | 17.6% | 32,772,094 |
+| #4 | Java | 13.3% | 24,842,775 |
+| #5 | TypeScript | 8.2% | 15,264,697 |
+| #6 | Python | 2.8% | 5,286,152 |
+| #7 | JavaScript | 1.2% | 2,311,835 |
+| #8 | CSS | 1.1% | 1,965,289 |
+| — | 其他 | 0.9% | 1,748,592 |
+
+<!-- LANGUAGES:END -->
+
+---
+
 <div align="center">
 
-<sub>Stats updated daily via GitHub Actions &middot; Last refresh: <!-- UPDATED:START -->
-2026-04-20 10:50 UTC
+<sub>统计由 GitHub Actions 每日自动刷新 &middot; 最近刷新:<!-- UPDATED:START -->
+2026-04-20 10:59 UTC
 <!-- UPDATED:END --></sub>
 
 </div>

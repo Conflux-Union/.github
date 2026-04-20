@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Collect org commit stats and patch profile/README.md + stats.json.
 
-Runs under GitHub Actions with GITHUB_TOKEN. Two outputs:
+Runs under GitHub Actions with GITHUB_TOKEN. Outputs:
     profile/README.md  - human-facing, marker-delimited sections rewritten
     profile/stats.json - machine-readable numbers used by shields.io badges
 """
@@ -12,7 +12,7 @@ import os
 import re
 import sys
 import time
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import quote
@@ -20,7 +20,7 @@ from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 
 ORG = os.environ.get("ORG", "Conflux-Union")
-WINDOW_DAYS = int(os.environ.get("WINDOW_DAYS", "30"))
+WINDOW_DAYS = int(os.environ.get("WINDOW_DAYS", "90"))
 TOKEN = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
 ROOT = Path(__file__).resolve().parent.parent
 README = ROOT / "profile" / "README.md"
@@ -93,6 +93,11 @@ def commits_since(repo: str, since_iso: str) -> list[dict]:
     )
 
 
+def repo_languages(repo: str) -> dict[str, int]:
+    data = api(f"/repos/{ORG}/{repo}/languages")
+    return data if isinstance(data, dict) else {}
+
+
 def render_stats_block(
     total: int,
     repo_count: int,
@@ -101,12 +106,12 @@ def render_stats_block(
     window: int,
 ) -> str:
     return (
-        "| Metric | Value |\n"
+        "| 指标 | 数值 |\n"
         "|---|---|\n"
-        f"| Commits in last {window} days | **{total}** |\n"
-        f"| Public repositories | **{repo_count}** |\n"
-        f"| Active repositories ({window}d) | **{active_repos}** |\n"
-        f"| Members | **{member_count}** |\n"
+        f"| 近 {window} 天提交总数 | **{total}** |\n"
+        f"| 公开仓库总数 | **{repo_count}** |\n"
+        f"| 活跃仓库数({window}d) | **{active_repos}** |\n"
+        f"| 成员总数 | **{member_count}** |\n"
     )
 
 
@@ -116,18 +121,87 @@ def render_ranking_block(
     window: int,
 ) -> str:
     if not ranking:
-        return f"_No commits recorded in the last {window} days._\n"
+        return f"_近 {window} 天暂无提交记录。_\n"
     lines = [
-        "| Rank | Member | Commits |",
+        "| 排名 | 成员 | 提交数 |",
         "|---:|:---|---:|",
     ]
     for i, (login, count) in enumerate(ranking, 1):
         medal = {1: "🥇", 2: "🥈", 3: "🥉"}.get(i, f"#{i}")
-        tag = "" if login in members else " _(outside contributor)_"
+        tag = "" if login in members else " _(外部贡献者)_"
+        safe = login.replace("[", "\\[").replace("]", "\\]")
         lines.append(
-            f"| {medal} | [@{login}](https://github.com/{login}){tag} | {count} |"
+            f"| {medal} | [@{safe}](https://github.com/{login}){tag} | {count} |"
         )
     return "\n".join(lines) + "\n"
+
+
+def render_daily_chart(daily: dict[str, int], window: int) -> str:
+    today = datetime.now(timezone.utc).date()
+    days = [today - timedelta(days=i) for i in range(window - 1, -1, -1)]
+
+    if window <= 45:
+        values = [daily.get(d.isoformat(), 0) for d in days]
+        labels = [f'"{d.strftime("%m-%d")}"' for d in days]
+        title = f"近 {window} 天每日提交数"
+    else:
+        bucket_size = 7
+        offset = len(days) % bucket_size
+        buckets: list[tuple[str, int]] = []
+        if offset:
+            head = days[:offset]
+            buckets.append((
+                head[0].strftime("%m-%d"),
+                sum(daily.get(d.isoformat(), 0) for d in head),
+            ))
+        for i in range(offset, len(days), bucket_size):
+            chunk = days[i : i + bucket_size]
+            buckets.append((
+                chunk[0].strftime("%m-%d"),
+                sum(daily.get(d.isoformat(), 0) for d in chunk),
+            ))
+        labels = [f'"{lbl}"' for lbl, _ in buckets]
+        values = [v for _, v in buckets]
+        title = f"近 {window} 天每周提交数(按自然周聚合)"
+
+    y_max = max(values + [1])
+    y_top = y_max + max(1, y_max // 5)
+    return (
+        "```mermaid\n"
+        "xychart-beta\n"
+        f'    title "{title}"\n'
+        f"    x-axis [{', '.join(labels)}]\n"
+        f'    y-axis "提交数" 0 --> {y_top}\n'
+        f"    bar [{', '.join(str(v) for v in values)}]\n"
+        f"    line [{', '.join(str(v) for v in values)}]\n"
+        "```\n"
+    )
+
+
+def render_languages_block(lang_bytes: dict[str, int], top_n: int = 8) -> str:
+    if not lang_bytes:
+        return "_暂无可用的语言数据。_\n"
+    total = sum(lang_bytes.values())
+    items = sorted(lang_bytes.items(), key=lambda x: -x[1])
+    top = items[:top_n]
+    others = sum(v for _, v in items[top_n:])
+    pie_lines = ["```mermaid", 'pie showData', '    title 语言占比(字节数,活跃仓库加权)']
+    for name, b in top:
+        safe = name.replace('"', '')
+        pie_lines.append(f'    "{safe}" : {b}')
+    if others > 0:
+        pie_lines.append(f'    "Others" : {others}')
+    pie_lines.append("```")
+
+    table_lines = ["", "| 排名 | 语言 | 占比 | 字节数 |", "|---:|:---|---:|---:|"]
+    for i, (name, b) in enumerate(top, 1):
+        pct = b / total * 100
+        table_lines.append(f"| #{i} | {name} | {pct:.1f}% | {b:,} |")
+    if others > 0:
+        pct = others / total * 100
+        table_lines.append(f"| — | 其他 | {pct:.1f}% | {others:,} |")
+
+    return "\n".join(pie_lines) + "\n" + "\n".join(table_lines) + "\n"
 
 
 def patch(text: str, marker: str, content: str) -> str:
@@ -151,8 +225,11 @@ def main() -> None:
     member_set = set(members)
 
     author_counts: Counter[str] = Counter()
+    daily_counts: dict[str, int] = defaultdict(int)
+    lang_bytes: Counter[str] = Counter()
     total = 0
     active_repos = 0
+    repo_commit_count: dict[str, int] = {}
 
     for repo in repos:
         name = repo["name"]
@@ -161,14 +238,30 @@ def main() -> None:
         except HTTPError as e:
             print(f"skip {name}: HTTP {e.code}", file=sys.stderr)
             continue
+
         if commits:
             active_repos += 1
+            repo_commit_count[name] = len(commits)
+
         for c in commits:
             total += 1
             author = (c.get("author") or {}).get("login")
             if not author:
                 author = ((c.get("commit") or {}).get("author") or {}).get("name") or "unknown"
             author_counts[author] += 1
+
+            date_str = ((c.get("commit") or {}).get("author") or {}).get("date", "")
+            if len(date_str) >= 10:
+                daily_counts[date_str[:10]] += 1
+
+    for name, commit_count in repo_commit_count.items():
+        try:
+            langs = repo_languages(name)
+        except HTTPError as e:
+            print(f"skip languages for {name}: HTTP {e.code}", file=sys.stderr)
+            continue
+        for lang, b in langs.items():
+            lang_bytes[lang] += b * commit_count
 
     ranking_members = [
         (login, author_counts.get(login, 0))
@@ -193,7 +286,9 @@ def main() -> None:
         "STATS",
         render_stats_block(total, len(repos), active_repos, len(members), WINDOW_DAYS),
     )
+    text = patch(text, "CHART_DAILY", render_daily_chart(daily_counts, WINDOW_DAYS))
     text = patch(text, "RANKING", render_ranking_block(ranking, member_set, WINDOW_DAYS))
+    text = patch(text, "LANGUAGES", render_languages_block(dict(lang_bytes)))
     text = patch(text, "UPDATED", updated)
     README.write_text(text, encoding="utf-8")
 
@@ -210,6 +305,8 @@ def main() -> None:
                 "ranking": [
                     {"login": login, "commits": count} for login, count in ranking
                 ],
+                "daily": dict(daily_counts),
+                "languages": dict(lang_bytes),
             },
             indent=2,
         )
@@ -217,7 +314,10 @@ def main() -> None:
         encoding="utf-8",
     )
 
-    print(f"commits={total} active_repos={active_repos} members={len(members)}")
+    print(
+        f"commits={total} active_repos={active_repos} "
+        f"members={len(members)} languages={len(lang_bytes)}"
+    )
 
 
 if __name__ == "__main__":

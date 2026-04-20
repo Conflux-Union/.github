@@ -32,7 +32,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.ORG_READ_TOKEN || secrets.GITHUB_TOKEN }}
           ORG: Conflux-Union
-          WINDOW_DAYS: "30"
+          WINDOW_DAYS: "90"
         run: python scripts/update_stats.py
 
       - name: Commit changes
