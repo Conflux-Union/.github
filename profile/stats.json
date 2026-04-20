@@ -1,0 +1,27 @@
+{
+  "org": "Conflux-Union",
+  "window_days": 30,
+  "recent_commits": 90,
+  "active_repos": 7,
+  "public_repos": 26,
+  "members": 9,
+  "updated_at": "2026-04-20 10:50 UTC",
+  "ranking": [
+    {
+      "login": "Trirrin",
+      "commits": 49
+    },
+    {
+      "login": "dependabot[bot]",
+      "commits": 17
+    },
+    {
+      "login": "Chonghua-05",
+      "commits": 13
+    },
+    {
+      "login": "husbvt",
+      "commits": 11
+    }
+  ]
+}
