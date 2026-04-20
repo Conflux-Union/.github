@@ -25,6 +25,7 @@ TOKEN = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
 ROOT = Path(__file__).resolve().parent.parent
 README = ROOT / "profile" / "README.md"
 STATS_JSON = ROOT / "profile" / "stats.json"
+OVERRIDES = ROOT / "profile" / "members_override.json"
 
 if not TOKEN:
     sys.exit("GITHUB_TOKEN is required")
@@ -83,6 +84,15 @@ def list_repos() -> list[dict]:
 def list_members() -> list[str]:
     members = paginate(f"/orgs/{ORG}/members")
     return [m["login"] for m in members]
+
+
+def load_overrides() -> tuple[set[str], set[str]]:
+    if not OVERRIDES.exists():
+        return set(), set()
+    data = json.loads(OVERRIDES.read_text(encoding="utf-8"))
+    extra = {str(x) for x in data.get("extra_members", [])}
+    exclude = {str(x) for x in data.get("exclude_authors", [])}
+    return extra, exclude
 
 
 def commits_since(repo: str, since_iso: str) -> list[dict]:
@@ -221,8 +231,22 @@ def main() -> None:
     since_iso = since_dt.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     repos = list_repos()
-    members = list_members()
-    member_set = set(members)
+    api_members = list_members()
+    extra_members, exclude_authors = load_overrides()
+    member_set = set(api_members) | extra_members
+    members = sorted(member_set, key=str.lower)
+    print(
+        f"members: api={len(api_members)} override=+{len(extra_members)} "
+        f"total={len(members)} excluded_bots={len(exclude_authors)}",
+        file=sys.stderr,
+    )
+    if len(api_members) <= 5:
+        print(
+            "WARN: only public members returned from API — token likely lacks "
+            "read:org scope or is a repo-scoped GITHUB_TOKEN. Private members "
+            "will be missed unless listed in profile/members_override.json.",
+            file=sys.stderr,
+        )
 
     author_counts: Counter[str] = Counter()
     daily_counts: dict[str, int] = defaultdict(int)
@@ -244,10 +268,12 @@ def main() -> None:
             repo_commit_count[name] = len(commits)
 
         for c in commits:
-            total += 1
             author = (c.get("author") or {}).get("login")
             if not author:
                 author = ((c.get("commit") or {}).get("author") or {}).get("name") or "unknown"
+            if author in exclude_authors:
+                continue
+            total += 1
             author_counts[author] += 1
 
             date_str = ((c.get("commit") or {}).get("author") or {}).get("date", "")

@@ -1,0 +1,9 @@
+{
+  "_comment": "Manually curated overrides. extra_members: logins that GitHub API won't return as org members (e.g. fully concealed accounts) but should still be treated as members in rankings. exclude_authors: logins to drop entirely from rankings (bots, automation accounts). Edit freely — this file is authoritative over API results.",
+  "extra_members": [],
+  "exclude_authors": [
+    "dependabot[bot]",
+    "github-actions[bot]",
+    "renovate[bot]"
+  ]
+}

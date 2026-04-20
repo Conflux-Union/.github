@@ -29,7 +29,7 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 <!-- STATS:START -->
 | 指标 | 数值 |
 |---|---|
-| 近 90 天提交总数 | **282** |
+| 近 90 天提交总数 | **253** |
 | 公开仓库总数 | **26** |
 | 活跃仓库数(90d) | **14** |
 | 成员总数 | **9** |
@@ -45,9 +45,9 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 xychart-beta
     title "近 90 天每周提交数(按自然周聚合)"
     x-axis ["01-21", "01-27", "02-03", "02-10", "02-17", "02-24", "03-03", "03-10", "03-17", "03-24", "03-31", "04-07", "04-14"]
-    y-axis "提交数" 0 --> 69
-    bar [3, 7, 27, 14, 23, 15, 58, 39, 19, 2, 52, 7, 16]
-    line [3, 7, 27, 14, 23, 15, 58, 39, 19, 2, 52, 7, 16]
+    y-axis "提交数" 0 --> 61
+    bar [3, 7, 27, 14, 23, 15, 51, 36, 16, 0, 43, 6, 12]
+    line [3, 7, 27, 14, 23, 15, 51, 36, 16, 0, 43, 6, 12]
 ```
 
 <!-- CHART_DAILY:END -->
@@ -59,16 +59,14 @@ xychart-beta
 <!-- RANKING:START -->
 | 排名 | 成员 | 提交数 |
 |---:|:---|---:|
-| 🥇 | [@Trirrin](https://github.com/Trirrin) | 176 |
+| 🥇 | [@Trirrin](https://github.com/Trirrin) | 177 |
 | 🥈 | [@Chonghua-05](https://github.com/Chonghua-05) | 36 |
-| 🥉 | [@dependabot\[bot\]](https://github.com/dependabot[bot]) _(外部贡献者)_ | 29 |
-| #4 | [@husbvt](https://github.com/husbvt) | 11 |
-| #5 | [@Jog-Ming](https://github.com/Jog-Ming) | 11 |
-| #6 | [@VY-L](https://github.com/VY-L) | 9 |
-| #7 | [@mgHurryo](https://github.com/mgHurryo) | 5 |
-| #8 | [@halfban0](https://github.com/halfban0) _(外部贡献者)_ | 3 |
-| #9 | [@Ftimever](https://github.com/Ftimever) | 1 |
-| #10 | [@github-actions\[bot\]](https://github.com/github-actions[bot]) _(外部贡献者)_ | 1 |
+| 🥉 | [@husbvt](https://github.com/husbvt) | 11 |
+| #4 | [@Jog-Ming](https://github.com/Jog-Ming) | 11 |
+| #5 | [@VY-L](https://github.com/VY-L) | 9 |
+| #6 | [@mgHurryo](https://github.com/mgHurryo) | 5 |
+| #7 | [@halfban0](https://github.com/halfban0) _(外部贡献者)_ | 3 |
+| #8 | [@Ftimever](https://github.com/Ftimever) | 1 |
 
 <!-- RANKING:END -->
 
@@ -85,7 +83,7 @@ pie showData
     "Go" : 32772094
     "Java" : 24842775
     "TypeScript" : 15264697
-    "Python" : 5286152
+    "Python" : 5304399
     "JavaScript" : 2311835
     "CSS" : 1965289
     "Others" : 1748592
@@ -98,7 +96,7 @@ pie showData
 | #3 | Go | 17.6% | 32,772,094 |
 | #4 | Java | 13.3% | 24,842,775 |
 | #5 | TypeScript | 8.2% | 15,264,697 |
-| #6 | Python | 2.8% | 5,286,152 |
+| #6 | Python | 2.8% | 5,304,399 |
 | #7 | JavaScript | 1.2% | 2,311,835 |
 | #8 | CSS | 1.1% | 1,965,289 |
 | — | 其他 | 0.9% | 1,748,592 |
@@ -110,7 +108,7 @@ pie showData
 <div align="center">
 
 <sub>统计由 GitHub Actions 每日自动刷新 &middot; 最近刷新:<!-- UPDATED:START -->
-2026-04-20 10:59 UTC
+2026-04-20 11:09 UTC
 <!-- UPDATED:END --></sub>
 
 </div>
