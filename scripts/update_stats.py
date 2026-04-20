@@ -107,32 +107,43 @@ def commits_since(repo: str, since_iso: str) -> list[dict]:
 
 def repo_line_counts(repo: str) -> dict[str, int]:
     """Shallow-clone repo, run cloc, return {language: code_lines}."""
-    if not shutil_which("cloc"):
+    import shutil as _sh
+    if not _sh.which("cloc"):
         print("cloc not found on PATH; skipping line counts", file=sys.stderr)
         return {}
     with tempfile.TemporaryDirectory(prefix="cloc-") as td:
         src = Path(td) / "src"
-        url = f"https://x-access-token:{TOKEN}@github.com/{ORG}/{repo}.git"
+        url = f"https://github.com/{ORG}/{repo}.git"
         clone = subprocess.run(
-            ["git", "clone", "--depth=1", "--quiet", url, str(src)],
+            ["git", "clone", "--depth=1", url, str(src)],
             capture_output=True,
+            text=True,
             timeout=300,
         )
         if clone.returncode != 0:
-            print(f"clone {repo} failed: {clone.stderr.decode(errors='replace')[:200]}", file=sys.stderr)
+            print(
+                f"[lang] clone {repo} rc={clone.returncode}: "
+                f"{clone.stderr.strip()[:240]}",
+                file=sys.stderr,
+            )
             return {}
         res = subprocess.run(
-            ["cloc", "--json", "--quiet", "--vcs=git", str(src)],
+            ["cloc", "--json", "--quiet", str(src)],
             capture_output=True,
             text=True,
             timeout=300,
         )
         if res.returncode != 0 or not res.stdout.strip():
-            print(f"cloc {repo} failed rc={res.returncode}", file=sys.stderr)
+            print(
+                f"[lang] cloc {repo} rc={res.returncode} "
+                f"stdout_len={len(res.stdout)} stderr={res.stderr.strip()[:200]}",
+                file=sys.stderr,
+            )
             return {}
         try:
             data = json.loads(res.stdout)
-        except json.JSONDecodeError:
+        except json.JSONDecodeError as e:
+            print(f"[lang] cloc {repo} json parse error: {e}", file=sys.stderr)
             return {}
         out: dict[str, int] = {}
         for name, info in data.items():
@@ -141,12 +152,8 @@ def repo_line_counts(repo: str) -> dict[str, int]:
             code = info.get("code")
             if isinstance(code, int) and code > 0:
                 out[name] = code
+        print(f"[lang] {repo}: {sum(out.values())} lines across {len(out)} languages", file=sys.stderr)
         return out
-
-
-def shutil_which(name: str) -> str | None:
-    import shutil
-    return shutil.which(name)
 
 
 def render_stats_block(
