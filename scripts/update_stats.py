@@ -10,7 +10,9 @@ from __future__ import annotations
 import json
 import os
 import re
+import subprocess
 import sys
+import tempfile
 import time
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
@@ -103,9 +105,48 @@ def commits_since(repo: str, since_iso: str) -> list[dict]:
     )
 
 
-def repo_languages(repo: str) -> dict[str, int]:
-    data = api(f"/repos/{ORG}/{repo}/languages")
-    return data if isinstance(data, dict) else {}
+def repo_line_counts(repo: str) -> dict[str, int]:
+    """Shallow-clone repo, run cloc, return {language: code_lines}."""
+    if not shutil_which("cloc"):
+        print("cloc not found on PATH; skipping line counts", file=sys.stderr)
+        return {}
+    with tempfile.TemporaryDirectory(prefix="cloc-") as td:
+        src = Path(td) / "src"
+        url = f"https://x-access-token:{TOKEN}@github.com/{ORG}/{repo}.git"
+        clone = subprocess.run(
+            ["git", "clone", "--depth=1", "--quiet", url, str(src)],
+            capture_output=True,
+            timeout=300,
+        )
+        if clone.returncode != 0:
+            print(f"clone {repo} failed: {clone.stderr.decode(errors='replace')[:200]}", file=sys.stderr)
+            return {}
+        res = subprocess.run(
+            ["cloc", "--json", "--quiet", "--vcs=git", str(src)],
+            capture_output=True,
+            text=True,
+            timeout=300,
+        )
+        if res.returncode != 0 or not res.stdout.strip():
+            print(f"cloc {repo} failed rc={res.returncode}", file=sys.stderr)
+            return {}
+        try:
+            data = json.loads(res.stdout)
+        except json.JSONDecodeError:
+            return {}
+        out: dict[str, int] = {}
+        for name, info in data.items():
+            if name in ("header", "SUM") or not isinstance(info, dict):
+                continue
+            code = info.get("code")
+            if isinstance(code, int) and code > 0:
+                out[name] = code
+        return out
+
+
+def shutil_which(name: str) -> str | None:
+    import shutil
+    return shutil.which(name)
 
 
 def render_stats_block(
@@ -188,25 +229,25 @@ def render_daily_chart(daily: dict[str, int], window: int) -> str:
     )
 
 
-def render_languages_block(lang_bytes: dict[str, int], top_n: int = 8) -> str:
-    if not lang_bytes:
+def render_languages_block(lang_lines: dict[str, int], top_n: int = 8) -> str:
+    if not lang_lines:
         return "_暂无可用的语言数据。_\n"
-    total = sum(lang_bytes.values())
-    items = sorted(lang_bytes.items(), key=lambda x: -x[1])
+    total = sum(lang_lines.values())
+    items = sorted(lang_lines.items(), key=lambda x: -x[1])
     top = items[:top_n]
     others = sum(v for _, v in items[top_n:])
-    pie_lines = ["```mermaid", 'pie showData', '    title 语言占比(字节数,活跃仓库加权)']
-    for name, b in top:
-        safe = name.replace('"', '')
-        pie_lines.append(f'    "{safe}" : {b}')
+    pie_lines = ["```mermaid", "pie showData", "    title 语言占比(代码行数,活跃仓库合计)"]
+    for name, n in top:
+        safe = name.replace('"', "")
+        pie_lines.append(f'    "{safe}" : {n}')
     if others > 0:
         pie_lines.append(f'    "Others" : {others}')
     pie_lines.append("```")
 
-    table_lines = ["", "| 排名 | 语言 | 占比 | 字节数 |", "|---:|:---|---:|---:|"]
-    for i, (name, b) in enumerate(top, 1):
-        pct = b / total * 100
-        table_lines.append(f"| #{i} | {name} | {pct:.1f}% | {b:,} |")
+    table_lines = ["", "| 排名 | 语言 | 占比 | 代码行数 |", "|---:|:---|---:|---:|"]
+    for i, (name, n) in enumerate(top, 1):
+        pct = n / total * 100
+        table_lines.append(f"| #{i} | {name} | {pct:.1f}% | {n:,} |")
     if others > 0:
         pct = others / total * 100
         table_lines.append(f"| — | 其他 | {pct:.1f}% | {others:,} |")
@@ -250,7 +291,7 @@ def main() -> None:
 
     author_counts: Counter[str] = Counter()
     daily_counts: dict[str, int] = defaultdict(int)
-    lang_bytes: Counter[str] = Counter()
+    lang_lines: Counter[str] = Counter()
     total = 0
     active_repos = 0
     repo_commit_count: dict[str, int] = {}
@@ -280,14 +321,10 @@ def main() -> None:
             if len(date_str) >= 10:
                 daily_counts[date_str[:10]] += 1
 
-    for name, commit_count in repo_commit_count.items():
-        try:
-            langs = repo_languages(name)
-        except HTTPError as e:
-            print(f"skip languages for {name}: HTTP {e.code}", file=sys.stderr)
-            continue
-        for lang, b in langs.items():
-            lang_bytes[lang] += b * commit_count
+    for name in repo_commit_count:
+        lines = repo_line_counts(name)
+        for lang, n in lines.items():
+            lang_lines[lang] += n
 
     ranking_members = [
         (login, author_counts.get(login, 0))
@@ -314,7 +351,7 @@ def main() -> None:
     )
     text = patch(text, "CHART_DAILY", render_daily_chart(daily_counts, WINDOW_DAYS))
     text = patch(text, "RANKING", render_ranking_block(ranking, member_set, WINDOW_DAYS))
-    text = patch(text, "LANGUAGES", render_languages_block(dict(lang_bytes)))
+    text = patch(text, "LANGUAGES", render_languages_block(dict(lang_lines)))
     text = patch(text, "UPDATED", updated)
     README.write_text(text, encoding="utf-8")
 
@@ -332,7 +369,7 @@ def main() -> None:
                     {"login": login, "commits": count} for login, count in ranking
                 ],
                 "daily": dict(daily_counts),
-                "languages": dict(lang_bytes),
+                "languages": dict(lang_lines),
             },
             indent=2,
         )
@@ -342,7 +379,7 @@ def main() -> None:
 
     print(
         f"commits={total} active_repos={active_repos} "
-        f"members={len(members)} languages={len(lang_bytes)}"
+        f"members={len(members)} languages={len(lang_lines)}"
     )
 
 

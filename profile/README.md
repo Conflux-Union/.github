@@ -72,7 +72,7 @@ xychart-beta
 
 ---
 
-## 语言占比(按活跃仓库加权)
+## 语言占比(按代码行数,活跃仓库合计)
 
 <!-- LANGUAGES:START -->
 ```mermaid
