@@ -29,7 +29,7 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 <!-- STATS:START -->
 | 指标 | 数值 |
 |---|---|
-| 近 90 天提交总数 | **257** |
+| 近 90 天提交总数 | **258** |
 | 公开仓库总数 | **26** |
 | 活跃仓库数(90d) | **14** |
 | 成员总数 | **9** |
@@ -44,10 +44,10 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 ```mermaid
 xychart-beta
     title "近 90 天每周提交数(按自然周聚合)"
-    x-axis ["01-23", "01-29", "02-05", "02-12", "02-19", "02-26", "03-05", "03-12", "03-19", "03-26", "04-02", "04-09", "04-16"]
-    y-axis "提交数" 0 --> 56
-    bar [2, 11, 23, 14, 27, 28, 47, 25, 14, 8, 39, 5, 14]
-    line [2, 11, 23, 14, 27, 28, 47, 25, 14, 8, 39, 5, 14]
+    x-axis ["01-24", "01-30", "02-06", "02-13", "02-20", "02-27", "03-06", "03-13", "03-20", "03-27", "04-03", "04-10", "04-17"]
+    y-axis "提交数" 0 --> 64
+    bar [4, 30, 2, 14, 27, 31, 54, 15, 14, 12, 36, 4, 15]
+    line [4, 30, 2, 14, 27, 31, 54, 15, 14, 12, 36, 4, 15]
 ```
 
 <!-- CHART_DAILY:END -->
@@ -64,7 +64,7 @@ xychart-beta
 | 🥉 | [@husbvt](https://github.com/husbvt) | 11 |
 | #4 | [@Jog-Ming](https://github.com/Jog-Ming) | 11 |
 | #5 | [@VY-L](https://github.com/VY-L) | 9 |
-| #6 | [@mgHurryo](https://github.com/mgHurryo) | 4 |
+| #6 | [@mgHurryo](https://github.com/mgHurryo) | 5 |
 | #7 | [@halfban0](https://github.com/halfban0) _(外部贡献者)_ | 3 |
 | #8 | [@Ftimever](https://github.com/Ftimever) | 1 |
 
@@ -84,7 +84,7 @@ pie showData
     "Kotlin" : 14085
     "Go" : 13199
     "JSON" : 9818
-    "Markdown" : 7236
+    "Markdown" : 7235
     "YAML" : 6098
     "Others" : 17308
 ```
@@ -97,7 +97,7 @@ pie showData
 | #4 | Kotlin | 12.0% | 14,085 |
 | #5 | Go | 11.3% | 13,199 |
 | #6 | JSON | 8.4% | 9,818 |
-| #7 | Markdown | 6.2% | 7,236 |
+| #7 | Markdown | 6.2% | 7,235 |
 | #8 | YAML | 5.2% | 6,098 |
 | — | 其他 | 14.8% | 17,308 |
 
@@ -108,7 +108,7 @@ pie showData
 <div align="center">
 
 <sub>统计由 GitHub Actions 每日自动刷新 &middot; 最近刷新:<!-- UPDATED:START -->
-2026-04-22 05:36 UTC
+2026-04-23 05:40 UTC
 <!-- UPDATED:END --></sub>
 
 </div>
