@@ -1,15 +1,15 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 259,
+  "recent_commits": 260,
   "active_repos": 14,
   "public_repos": 26,
   "members": 9,
-  "updated_at": "2026-04-25 05:24 UTC",
+  "updated_at": "2026-04-26 05:48 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 183
+      "commits": 184
     },
     {
       "login": "Chonghua-05",
@@ -82,6 +82,7 @@
     "2026-03-04": 9,
     "2026-03-02": 9,
     "2026-02-25": 2,
+    "2026-04-25": 1,
     "2026-04-19": 3,
     "2026-04-14": 3,
     "2026-04-11": 1,
