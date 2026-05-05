@@ -5,7 +5,7 @@
   "active_repos": 14,
   "public_repos": 26,
   "members": 9,
-  "updated_at": "2026-05-04 06:23 UTC",
+  "updated_at": "2026-05-05 06:00 UTC",
   "ranking": [
     {
       "login": "Trirrin",
@@ -97,7 +97,7 @@
     "Java": 17200,
     "Bourne Shell": 1008,
     "DOS Batch": 627,
-    "JSON": 9824,
+    "JSON": 9823,
     "Gradle": 1000,
     "Properties": 207,
     "INI": 405,
