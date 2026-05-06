@@ -1,15 +1,15 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 254,
+  "recent_commits": 245,
   "active_repos": 14,
   "public_repos": 26,
   "members": 9,
-  "updated_at": "2026-05-05 06:00 UTC",
+  "updated_at": "2026-05-06 06:14 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 180
+      "commits": 178
     },
     {
       "login": "Chonghua-05",
@@ -20,23 +20,23 @@
       "commits": 11
     },
     {
-      "login": "Jog-Ming",
-      "commits": 11
-    },
-    {
       "login": "VY-L",
       "commits": 9
+    },
+    {
+      "login": "Jog-Ming",
+      "commits": 6
     },
     {
       "login": "halfban0",
       "commits": 3
     },
     {
-      "login": "mgHurryo",
-      "commits": 3
+      "login": "Ftimever",
+      "commits": 1
     },
     {
-      "login": "Ftimever",
+      "login": "mgHurryo",
       "commits": 1
     }
   ],
@@ -58,7 +58,7 @@
     "2026-03-09": 8,
     "2026-03-03": 8,
     "2026-02-24": 2,
-    "2026-02-05": 21,
+    "2026-02-05": 16,
     "2026-04-26": 3,
     "2026-03-08": 1,
     "2026-03-07": 22,
@@ -70,7 +70,6 @@
     "2026-02-15": 4,
     "2026-02-13": 2,
     "2026-02-06": 2,
-    "2026-02-04": 4,
     "2026-04-23": 1,
     "2026-02-23": 5,
     "2026-02-21": 9,
