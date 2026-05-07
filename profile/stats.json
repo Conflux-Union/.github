@@ -1,15 +1,15 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 245,
-  "active_repos": 14,
+  "recent_commits": 236,
+  "active_repos": 11,
   "public_repos": 26,
   "members": 9,
-  "updated_at": "2026-05-06 06:14 UTC",
+  "updated_at": "2026-05-07 06:20 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 178
+      "commits": 174
     },
     {
       "login": "Chonghua-05",
@@ -24,15 +24,15 @@
       "commits": 9
     },
     {
-      "login": "Jog-Ming",
-      "commits": 6
-    },
-    {
       "login": "halfban0",
       "commits": 3
     },
     {
       "login": "Ftimever",
+      "commits": 1
+    },
+    {
+      "login": "Jog-Ming",
       "commits": 1
     },
     {
@@ -58,7 +58,8 @@
     "2026-03-09": 8,
     "2026-03-03": 8,
     "2026-02-24": 2,
-    "2026-02-05": 16,
+    "2026-05-07": 4,
+    "2026-05-06": 3,
     "2026-04-26": 3,
     "2026-03-08": 1,
     "2026-03-07": 22,
@@ -89,19 +90,19 @@
     "2026-04-20": 9
   },
   "languages": {
-    "Markdown": 7248,
+    "Markdown": 7004,
     "Python": 16295,
-    "YAML": 6091,
+    "YAML": 5530,
     "Text": 132,
-    "Java": 17200,
-    "Bourne Shell": 1008,
-    "DOS Batch": 627,
-    "JSON": 9823,
-    "Gradle": 1000,
-    "Properties": 207,
+    "Java": 16850,
     "INI": 405,
+    "Bourne Shell": 591,
+    "Gradle": 811,
+    "JSON": 9701,
+    "DOS Batch": 350,
+    "Properties": 165,
     "JavaScript": 1994,
-    "Kotlin": 14419,
+    "Kotlin": 14416,
     "Vuejs Component": 16147,
     "Go": 13350,
     "TypeScript": 5493,
