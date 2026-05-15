@@ -29,7 +29,7 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 <!-- STATS:START -->
 | 指标 | 数值 |
 |---|---|
-| 近 90 天提交总数 | **234** |
+| 近 90 天提交总数 | **232** |
 | 公开仓库总数 | **26** |
 | 活跃仓库数(90d) | **11** |
 | 成员总数 | **9** |
@@ -44,10 +44,10 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 ```mermaid
 xychart-beta
     title "近 90 天每周提交数(按自然周聚合)"
-    x-axis ["02-14", "02-20", "02-27", "03-06", "03-13", "03-20", "03-27", "04-03", "04-10", "04-17", "04-24", "05-01", "05-08"]
-    y-axis "提交数" 0 --> 64
-    bar [12, 27, 31, 54, 15, 14, 12, 36, 4, 16, 4, 7, 0]
-    line [12, 27, 31, 54, 15, 14, 12, 36, 4, 16, 4, 7, 0]
+    x-axis ["02-15", "02-21", "02-28", "03-07", "03-14", "03-21", "03-28", "04-04", "04-11", "04-18", "04-25", "05-02", "05-09"]
+    y-axis "提交数" 0 --> 72
+    bar [12, 27, 31, 60, 9, 14, 23, 25, 4, 16, 4, 7, 0]
+    line [12, 27, 31, 60, 9, 14, 23, 25, 4, 16, 4, 7, 0]
 ```
 
 <!-- CHART_DAILY:END -->
@@ -59,14 +59,13 @@ xychart-beta
 <!-- RANKING:START -->
 | 排名 | 成员 | 提交数 |
 |---:|:---|---:|
-| 🥇 | [@Trirrin](https://github.com/Trirrin) | 174 |
+| 🥇 | [@Trirrin](https://github.com/Trirrin) | 173 |
 | 🥈 | [@Chonghua-05](https://github.com/Chonghua-05) | 34 |
 | 🥉 | [@husbvt](https://github.com/husbvt) | 11 |
 | #4 | [@VY-L](https://github.com/VY-L) | 9 |
 | #5 | [@halfban0](https://github.com/halfban0) _(外部贡献者)_ | 3 |
-| #6 | [@Ftimever](https://github.com/Ftimever) | 1 |
-| #7 | [@Jog-Ming](https://github.com/Jog-Ming) | 1 |
-| #8 | [@mgHurryo](https://github.com/mgHurryo) | 1 |
+| #6 | [@Jog-Ming](https://github.com/Jog-Ming) | 1 |
+| #7 | [@mgHurryo](https://github.com/mgHurryo) | 1 |
 
 <!-- RANKING:END -->
 
@@ -108,7 +107,7 @@ pie showData
 <div align="center">
 
 <sub>统计由 GitHub Actions 每日自动刷新 &middot; 最近刷新:<!-- UPDATED:START -->
-2026-05-14 06:34 UTC
+2026-05-15 06:43 UTC
 <!-- UPDATED:END --></sub>
 
 </div>
