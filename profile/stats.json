@@ -1,15 +1,15 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 201,
+  "recent_commits": 198,
   "active_repos": 11,
   "public_repos": 26,
   "members": 9,
-  "updated_at": "2026-05-24 06:48 UTC",
+  "updated_at": "2026-05-25 07:59 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 141
+      "commits": 138
     },
     {
       "login": "Chonghua-05",
@@ -69,7 +69,6 @@
     "2026-03-17": 1,
     "2026-03-01": 2,
     "2026-04-23": 1,
-    "2026-02-23": 3,
     "2026-04-21": 2,
     "2026-03-05": 3,
     "2026-03-04": 9,
@@ -93,7 +92,7 @@
     "INI": 405,
     "Bourne Shell": 591,
     "Gradle": 811,
-    "JSON": 9698,
+    "JSON": 9697,
     "DOS Batch": 350,
     "Properties": 165,
     "JavaScript": 1994,
