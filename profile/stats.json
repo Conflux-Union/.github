@@ -1,27 +1,23 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 136,
-  "active_repos": 12,
+  "recent_commits": 122,
+  "active_repos": 11,
   "public_repos": 27,
   "members": 9,
-  "updated_at": "2026-06-09 06:59 UTC",
+  "updated_at": "2026-06-10 07:19 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 83
+      "commits": 79
     },
     {
       "login": "Chonghua-05",
-      "commits": 30
+      "commits": 27
     },
     {
       "login": "husbvt",
       "commits": 11
-    },
-    {
-      "login": "VY-L",
-      "commits": 6
     },
     {
       "login": "halfban0",
@@ -29,10 +25,6 @@
     },
     {
       "login": "chonghua",
-      "commits": 1
-    },
-    {
-      "login": "Jog-Ming",
       "commits": 1
     },
     {
@@ -53,8 +45,7 @@
     "2026-03-18": 1,
     "2026-03-16": 4,
     "2026-03-14": 3,
-    "2026-03-12": 10,
-    "2026-03-11": 8,
+    "2026-03-12": 4,
     "2026-05-07": 4,
     "2026-05-06": 3,
     "2026-04-26": 3,
@@ -75,17 +66,17 @@
     "2026-05-31": 6
   },
   "languages": {
-    "Markdown": 7179,
+    "Markdown": 7091,
     "Python": 16295,
-    "YAML": 5530,
+    "YAML": 5255,
     "Text": 573,
-    "Java": 16850,
+    "Java": 16624,
     "INI": 405,
-    "Bourne Shell": 903,
-    "Gradle": 811,
-    "JSON": 9688,
-    "DOS Batch": 350,
-    "Properties": 165,
+    "Bourne Shell": 798,
+    "Gradle": 731,
+    "JSON": 9647,
+    "DOS Batch": 279,
+    "Properties": 149,
     "JavaScript": 1994,
     "Kotlin": 14416,
     "Vuejs Component": 16147,
