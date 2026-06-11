@@ -29,7 +29,7 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 <!-- STATS:START -->
 | 指标 | 数值 |
 |---|---|
-| 近 90 天提交总数 | **122** |
+| 近 90 天提交总数 | **118** |
 | 公开仓库总数 | **27** |
 | 活跃仓库数(90d) | **11** |
 | 成员总数 | **9** |
@@ -44,10 +44,10 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 ```mermaid
 xychart-beta
     title "近 90 天每周提交数(按自然周聚合)"
-    x-axis ["03-13", "03-19", "03-26", "04-02", "04-09", "04-16", "04-23", "04-30", "05-07", "05-14", "05-21", "05-28", "06-04"]
-    y-axis "提交数" 0 --> 46
-    bar [15, 14, 8, 39, 5, 15, 5, 3, 4, 1, 0, 9, 0]
-    line [15, 14, 8, 39, 5, 15, 5, 3, 4, 1, 0, 9, 0]
+    x-axis ["03-14", "03-20", "03-27", "04-03", "04-10", "04-17", "04-24", "05-01", "05-08", "05-15", "05-22", "05-29", "06-05"]
+    y-axis "提交数" 0 --> 43
+    bar [9, 14, 12, 36, 4, 16, 4, 7, 0, 1, 0, 9, 0]
+    line [9, 14, 12, 36, 4, 16, 4, 7, 0, 1, 0, 9, 0]
 ```
 
 <!-- CHART_DAILY:END -->
@@ -60,9 +60,9 @@ xychart-beta
 | 排名 | 成员 | 提交数 |
 |---:|:---|---:|
 | 🥇 | [@Trirrin](https://github.com/Trirrin) | 79 |
-| 🥈 | [@Chonghua-05](https://github.com/Chonghua-05) | 27 |
+| 🥈 | [@Chonghua-05](https://github.com/Chonghua-05) | 24 |
 | 🥉 | [@husbvt](https://github.com/husbvt) | 11 |
-| #4 | [@halfban0](https://github.com/halfban0) _(外部贡献者)_ | 3 |
+| #4 | [@halfban0](https://github.com/halfban0) _(外部贡献者)_ | 2 |
 | #5 | [@chonghua](https://github.com/chonghua) _(外部贡献者)_ | 1 |
 | #6 | [@mgHurryo](https://github.com/mgHurryo) | 1 |
 
@@ -82,8 +82,8 @@ pie showData
     "Vuejs Component" : 16147
     "Kotlin" : 14416
     "Go" : 13350
-    "JSON" : 9647
-    "Markdown" : 7091
+    "JSON" : 9638
+    "Markdown" : 7089
     "Others" : 18437
 ```
 
@@ -95,8 +95,8 @@ pie showData
 | #4 | Vuejs Component | 12.0% | 16,147 |
 | #5 | Kotlin | 10.7% | 14,416 |
 | #6 | Go | 10.0% | 13,350 |
-| #7 | JSON | 7.2% | 9,647 |
-| #8 | Markdown | 5.3% | 7,091 |
+| #7 | JSON | 7.2% | 9,638 |
+| #8 | Markdown | 5.3% | 7,089 |
 | — | 其他 | 13.7% | 18,437 |
 
 <!-- LANGUAGES:END -->
@@ -106,7 +106,7 @@ pie showData
 <div align="center">
 
 <sub>统计由 GitHub Actions 每日自动刷新 &middot; 最近刷新:<!-- UPDATED:START -->
-2026-06-10 07:19 UTC
+2026-06-11 08:16 UTC
 <!-- UPDATED:END --></sub>
 
 </div>
