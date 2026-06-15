@@ -1,11 +1,11 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 123,
+  "recent_commits": 119,
   "active_repos": 11,
   "public_repos": 28,
   "members": 9,
-  "updated_at": "2026-06-14 07:58 UTC",
+  "updated_at": "2026-06-15 09:38 UTC",
   "ranking": [
     {
       "login": "Trirrin",
@@ -13,15 +13,11 @@
     },
     {
       "login": "Chonghua-05",
-      "commits": 22
+      "commits": 20
     },
     {
       "login": "husbvt",
       "commits": 11
-    },
-    {
-      "login": "halfban0",
-      "commits": 2
     },
     {
       "login": "chonghua",
@@ -43,7 +39,6 @@
     "2026-03-31": 6,
     "2026-03-22": 14,
     "2026-03-18": 1,
-    "2026-03-16": 4,
     "2026-05-07": 4,
     "2026-05-06": 3,
     "2026-04-26": 3,
@@ -73,7 +68,7 @@
     "INI": 405,
     "Bourne Shell": 798,
     "Gradle": 731,
-    "JSON": 9641,
+    "JSON": 9642,
     "DOS Batch": 279,
     "Properties": 149,
     "Kotlin": 14416,
