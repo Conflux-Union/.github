@@ -5,7 +5,7 @@
   "active_repos": 9,
   "public_repos": 27,
   "members": 9,
-  "updated_at": "2026-06-21 08:11 UTC",
+  "updated_at": "2026-06-22 09:23 UTC",
   "ranking": [
     {
       "login": "Trirrin",
@@ -52,7 +52,7 @@
     "2026-04-20": 9
   },
   "languages": {
-    "Markdown": 3725,
+    "Markdown": 3724,
     "Python": 1097,
     "YAML": 3406,
     "Text": 111,
@@ -60,7 +60,7 @@
     "INI": 405,
     "Bourne Shell": 486,
     "Gradle": 731,
-    "JSON": 9634,
+    "JSON": 9629,
     "DOS Batch": 279,
     "Properties": 149,
     "Kotlin": 14416,
