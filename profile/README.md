@@ -29,7 +29,7 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 <!-- STATS:START -->
 | 指标 | 数值 |
 |---|---|
-| 近 90 天提交总数 | **62** |
+| 近 90 天提交总数 | **61** |
 | 公开仓库总数 | **27** |
 | 活跃仓库数(90d) | **9** |
 | 成员总数 | **9** |
@@ -44,10 +44,10 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 ```mermaid
 xychart-beta
     title "近 90 天每周提交数(按自然周聚合)"
-    x-axis ["04-07", "04-13", "04-20", "04-27", "05-04", "05-11", "05-18", "05-25", "06-01", "06-08", "06-15", "06-22", "06-29"]
-    y-axis "提交数" 0 --> 22
-    bar [6, 6, 17, 0, 7, 1, 0, 0, 0, 19, 2, 0, 2]
-    line [6, 6, 17, 0, 7, 1, 0, 0, 0, 19, 2, 0, 2]
+    x-axis ["04-08", "04-14", "04-21", "04-28", "05-05", "05-12", "05-19", "05-26", "06-02", "06-09", "06-16", "06-23", "06-30"]
+    y-axis "提交数" 0 --> 25
+    bar [3, 15, 8, 0, 7, 1, 0, 0, 0, 21, 0, 0, 3]
+    line [3, 15, 8, 0, 7, 1, 0, 0, 0, 21, 0, 0, 3]
 ```
 
 <!-- CHART_DAILY:END -->
@@ -59,7 +59,7 @@ xychart-beta
 <!-- RANKING:START -->
 | 排名 | 成员 | 提交数 |
 |---:|:---|---:|
-| 🥇 | [@Trirrin](https://github.com/Trirrin) | 59 |
+| 🥇 | [@Trirrin](https://github.com/Trirrin) | 58 |
 | 🥈 | [@chonghua](https://github.com/chonghua) _(外部贡献者)_ | 1 |
 | 🥉 | [@Chonghua-05](https://github.com/Chonghua-05) | 1 |
 | #4 | [@mgHurryo](https://github.com/mgHurryo) | 1 |
@@ -74,7 +74,7 @@ xychart-beta
 ```mermaid
 pie showData
     title 语言占比(代码行数,活跃仓库合计)
-    "Java" : 16675
+    "Java" : 16688
     "Vuejs Component" : 16480
     "Kotlin" : 14416
     "Go" : 13350
@@ -82,12 +82,12 @@ pie showData
     "TypeScript" : 5471
     "Rust" : 4048
     "Markdown" : 3732
-    "Others" : 12594
+    "Others" : 12598
 ```
 
 | 排名 | 语言 | 占比 | 代码行数 |
 |---:|:---|---:|---:|
-| #1 | Java | 17.3% | 16,675 |
+| #1 | Java | 17.3% | 16,688 |
 | #2 | Vuejs Component | 17.1% | 16,480 |
 | #3 | Kotlin | 15.0% | 14,416 |
 | #4 | Go | 13.8% | 13,350 |
@@ -95,7 +95,7 @@ pie showData
 | #6 | TypeScript | 5.7% | 5,471 |
 | #7 | Rust | 4.2% | 4,048 |
 | #8 | Markdown | 3.9% | 3,732 |
-| — | 其他 | 13.1% | 12,594 |
+| — | 其他 | 13.1% | 12,598 |
 
 <!-- LANGUAGES:END -->
 
@@ -104,7 +104,7 @@ pie showData
 <div align="center">
 
 <sub>统计由 GitHub Actions 每日自动刷新 &middot; 最近刷新:<!-- UPDATED:START -->
-2026-07-05 06:51 UTC
+2026-07-06 07:56 UTC
 <!-- UPDATED:END --></sub>
 
 </div>
