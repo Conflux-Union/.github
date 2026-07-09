@@ -44,10 +44,10 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 ```mermaid
 xychart-beta
     title "近 90 天每周提交数(按自然周聚合)"
-    x-axis ["04-10", "04-16", "04-23", "04-30", "05-07", "05-14", "05-21", "05-28", "06-04", "06-11", "06-18", "06-25", "07-02"]
+    x-axis ["04-11", "04-17", "04-24", "05-01", "05-08", "05-15", "05-22", "05-29", "06-05", "06-12", "06-19", "06-26", "07-03"]
     y-axis "提交数" 0 --> 25
-    bar [4, 15, 5, 3, 4, 1, 0, 0, 0, 21, 0, 0, 5]
-    line [4, 15, 5, 3, 4, 1, 0, 0, 0, 21, 0, 0, 5]
+    bar [4, 16, 4, 7, 0, 1, 0, 0, 0, 21, 0, 0, 6]
+    line [4, 16, 4, 7, 0, 1, 0, 0, 0, 21, 0, 0, 6]
 ```
 
 <!-- CHART_DAILY:END -->
@@ -59,8 +59,8 @@ xychart-beta
 <!-- RANKING:START -->
 | 排名 | 成员 | 提交数 |
 |---:|:---|---:|
-| 🥇 | [@Trirrin](https://github.com/Trirrin) | 55 |
-| 🥈 | [@Chonghua-05](https://github.com/Chonghua-05) | 2 |
+| 🥇 | [@Trirrin](https://github.com/Trirrin) | 54 |
+| 🥈 | [@Chonghua-05](https://github.com/Chonghua-05) | 3 |
 | 🥉 | [@chonghua](https://github.com/chonghua) _(外部贡献者)_ | 1 |
 | #4 | [@mgHurryo](https://github.com/mgHurryo) | 1 |
 
@@ -78,10 +78,10 @@ pie showData
     "Vuejs Component" : 16480
     "Kotlin" : 14416
     "Go" : 13350
-    "JSON" : 9625
+    "JSON" : 9624
     "TypeScript" : 5471
     "Rust" : 4048
-    "Markdown" : 3736
+    "Markdown" : 3693
     "Others" : 12598
 ```
 
@@ -90,11 +90,11 @@ pie showData
 | #1 | Java | 17.3% | 16,688 |
 | #2 | Vuejs Component | 17.1% | 16,480 |
 | #3 | Kotlin | 15.0% | 14,416 |
-| #4 | Go | 13.8% | 13,350 |
-| #5 | JSON | 10.0% | 9,625 |
+| #4 | Go | 13.9% | 13,350 |
+| #5 | JSON | 10.0% | 9,624 |
 | #6 | TypeScript | 5.7% | 5,471 |
 | #7 | Rust | 4.2% | 4,048 |
-| #8 | Markdown | 3.9% | 3,736 |
+| #8 | Markdown | 3.8% | 3,693 |
 | — | 其他 | 13.1% | 12,598 |
 
 <!-- LANGUAGES:END -->
@@ -104,7 +104,7 @@ pie showData
 <div align="center">
 
 <sub>统计由 GitHub Actions 每日自动刷新 &middot; 最近刷新:<!-- UPDATED:START -->
-2026-07-08 06:08 UTC
+2026-07-09 06:56 UTC
 <!-- UPDATED:END --></sub>
 
 </div>
