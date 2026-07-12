@@ -1,15 +1,15 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 61,
+  "recent_commits": 69,
   "active_repos": 9,
   "public_repos": 27,
   "members": 9,
-  "updated_at": "2026-07-11 05:54 UTC",
+  "updated_at": "2026-07-12 06:14 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 56
+      "commits": 64
     },
     {
       "login": "Chonghua-05",
@@ -34,6 +34,8 @@
     "2026-04-26": 3,
     "2026-07-06": 1,
     "2026-07-04": 2,
+    "2026-07-11": 7,
+    "2026-06-18": 1,
     "2026-06-15": 2,
     "2026-06-13": 9,
     "2026-06-12": 10,
@@ -46,30 +48,30 @@
     "2026-04-20": 9
   },
   "languages": {
-    "Markdown": 3693,
+    "Markdown": 4342,
     "Python": 1097,
-    "YAML": 3406,
+    "YAML": 3533,
     "Text": 111,
     "Java": 16851,
     "INI": 405,
     "Bourne Shell": 486,
     "Gradle": 760,
-    "JSON": 9637,
+    "JSON": 3483,
     "DOS Batch": 279,
     "Properties": 149,
     "Kotlin": 14416,
-    "Vuejs Component": 16480,
-    "Go": 13350,
-    "TypeScript": 5471,
-    "JavaScript": 2912,
+    "Vuejs Component": 16369,
+    "Go": 13637,
+    "TypeScript": 5478,
     "SQL": 360,
-    "XML": 285,
-    "HTML": 474,
+    "Rust": 4368,
+    "XML": 294,
     "CSS": 1690,
-    "TOML": 88,
+    "JavaScript": 2402,
+    "TOML": 118,
     "ProGuard": 74,
+    "HTML": 258,
     "SVG": 15,
-    "CSV": 7,
-    "Rust": 4048
+    "CSV": 7
   }
 }
