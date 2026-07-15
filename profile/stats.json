@@ -1,15 +1,15 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 82,
+  "recent_commits": 96,
   "active_repos": 9,
   "public_repos": 27,
   "members": 9,
-  "updated_at": "2026-07-14 05:41 UTC",
+  "updated_at": "2026-07-15 05:42 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 73
+      "commits": 87
     },
     {
       "login": "Chonghua-05",
@@ -31,6 +31,7 @@
     "2026-07-07": 2,
     "2026-05-16": 1,
     "2026-04-22": 1,
+    "2026-07-14": 14,
     "2026-05-07": 4,
     "2026-05-06": 3,
     "2026-04-26": 3,
@@ -49,21 +50,21 @@
     "2026-04-20": 9
   },
   "languages": {
-    "Markdown": 3697,
+    "Markdown": 3855,
     "Python": 1097,
-    "YAML": 3425,
+    "YAML": 3572,
     "Text": 159,
-    "Java": 16851,
+    "Java": 19643,
     "INI": 405,
     "Bourne Shell": 486,
-    "Gradle": 810,
-    "JSON": 3487,
+    "Gradle": 825,
+    "JSON": 3511,
     "DOS Batch": 279,
-    "Properties": 154,
-    "Kotlin": 14568,
-    "Vuejs Component": 16417,
-    "Go": 13778,
-    "TypeScript": 5498,
+    "Properties": 157,
+    "Kotlin": 14811,
+    "Vuejs Component": 16471,
+    "Go": 13777,
+    "TypeScript": 5465,
     "Rust": 4368,
     "XML": 294,
     "SQL": 284,
