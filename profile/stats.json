@@ -1,19 +1,19 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 215,
+  "recent_commits": 219,
   "active_repos": 11,
-  "public_repos": 29,
+  "public_repos": 30,
   "members": 9,
-  "updated_at": "2026-07-19 06:09 UTC",
+  "updated_at": "2026-07-20 06:27 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 148
+      "commits": 144
     },
     {
       "login": "mgHurryo",
-      "commits": 62
+      "commits": 70
     },
     {
       "login": "Chonghua-05",
@@ -25,6 +25,7 @@
     }
   ],
   "daily": {
+    "2026-07-20": 9,
     "2026-07-13": 9,
     "2026-07-12": 7,
     "2026-07-08": 1,
@@ -48,38 +49,41 @@
     "2026-07-16": 6,
     "2026-07-09": 3,
     "2026-04-25": 2,
-    "2026-04-20": 9,
     "2026-07-17": 63,
+    "2026-07-19": 4,
     "2026-07-18": 9
   },
   "languages": {
-    "Markdown": 7916,
-    "Python": 1097,
-    "YAML": 4088,
+    "Markdown": 8085,
+    "Python": 1325,
+    "YAML": 4313,
     "Text": 300,
-    "Java": 52183,
+    "Java": 52941,
     "INI": 405,
     "Bourne Shell": 693,
-    "Gradle": 1239,
-    "JSON": 5330,
+    "Gradle": 1251,
+    "JSON": 5332,
     "DOS Batch": 414,
     "Properties": 221,
     "Kotlin": 15071,
     "Vuejs Component": 16506,
     "Go": 15179,
     "TypeScript": 5675,
-    "Rust": 4368,
+    "Rust": 320,
     "SQL": 298,
     "XML": 294,
     "CSS": 1690,
     "JavaScript": 2402,
-    "TOML": 118,
+    "TOML": 108,
     "ProGuard": 70,
     "HTML": 272,
     "SVG": 14,
     "CSV": 7,
     "PowerShell": 57,
-    "C/C++ Header": 14247,
-    "C": 10325
+    "C/C++ Header": 14631,
+    "C": 12784,
+    "TeX": 661,
+    "make": 48,
+    "CMake": 39
   }
 }
