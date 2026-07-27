@@ -1,15 +1,15 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 396,
+  "recent_commits": 420,
   "active_repos": 10,
   "public_repos": 30,
   "members": 9,
-  "updated_at": "2026-07-26 06:16 UTC",
+  "updated_at": "2026-07-27 06:44 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 290
+      "commits": 314
     },
     {
       "login": "mgHurryo",
@@ -60,7 +60,7 @@
     "2026-07-16": 6,
     "2026-07-09": 3,
     "2026-07-17": 63,
-    "2026-07-26": 2,
+    "2026-07-26": 26,
     "2026-07-23": 23,
     "2026-07-22": 23,
     "2026-07-19": 4,
@@ -76,15 +76,15 @@
     "2026-04-30": 1
   },
   "languages": {
-    "Markdown": 7525,
+    "Markdown": 7769,
     "Python": 1565,
     "YAML": 4772,
     "Text": 1569,
-    "Java": 77665,
+    "Java": 84157,
     "INI": 405,
     "Bourne Shell": 693,
     "Gradle": 1563,
-    "JSON": 16427,
+    "JSON": 16600,
     "DOS Batch": 414,
     "Properties": 246,
     "Kotlin": 15071,
@@ -103,7 +103,7 @@
     "CSV": 7,
     "PowerShell": 57,
     "C/C++ Header": 29063,
-    "C": 29033,
+    "C": 29242,
     "TeX": 661,
     "CMake": 187
   }
