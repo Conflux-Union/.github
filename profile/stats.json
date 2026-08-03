@@ -1,34 +1,38 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 509,
+  "recent_commits": 544,
   "active_repos": 11,
   "public_repos": 30,
   "members": 9,
-  "updated_at": "2026-08-02 06:17 UTC",
+  "updated_at": "2026-08-03 06:39 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 403
+      "commits": 415
     },
     {
       "login": "mgHurryo",
-      "commits": 82
+      "commits": 103
     },
     {
       "login": "xpple",
-      "commits": 12
+      "commits": 11
     },
     {
       "login": "Chonghua-05",
-      "commits": 4
+      "commits": 6
     },
     {
       "login": "lithodoradiffusa",
-      "commits": 4
+      "commits": 3
     },
     {
       "login": "Spagles",
+      "commits": 2
+    },
+    {
+      "login": "yqs112358",
       "commits": 2
     },
     {
@@ -61,7 +65,8 @@
     "2026-06-13": 9,
     "2026-06-12": 10,
     "2026-07-30": 21,
-    "2026-07-21": 45,
+    "2026-08-02": 35,
+    "2026-07-21": 47,
     "2026-07-16": 6,
     "2026-07-09": 3,
     "2026-07-17": 63,
@@ -80,21 +85,20 @@
     "2026-06-17": 2,
     "2026-05-18": 1,
     "2026-05-15": 2,
-    "2026-05-14": 1,
-    "2026-05-05": 2
+    "2026-05-14": 1
   },
   "languages": {
-    "Markdown": 8725,
+    "Markdown": 8747,
     "Python": 1565,
     "YAML": 4948,
     "Text": 1587,
-    "Java": 112212,
+    "Java": 121243,
     "INI": 405,
     "Bourne Shell": 693,
     "Gradle": 1706,
-    "JSON": 18890,
+    "JSON": 19108,
     "DOS Batch": 414,
-    "Properties": 259,
+    "Properties": 263,
     "Kotlin": 15071,
     "Vuejs Component": 16506,
     "Go": 15255,
