@@ -29,9 +29,9 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 <!-- STATS:START -->
 | 指标 | 数值 |
 |---|---|
-| 近 90 天提交总数 | **690** |
-| 公开仓库总数 | **31** |
-| 活跃仓库数(90d) | **12** |
+| 近 90 天提交总数 | **731** |
+| 公开仓库总数 | **32** |
+| 活跃仓库数(90d) | **13** |
 | 成员总数 | **9** |
 
 <!-- STATS:END -->
@@ -44,10 +44,10 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 ```mermaid
 xychart-beta
     title "近 90 天每周提交数(按自然周聚合)"
-    x-axis ["05-21", "05-27", "06-03", "06-10", "06-17", "06-24", "07-01", "07-08", "07-15", "07-22", "07-29", "08-05", "08-12"]
-    y-axis "提交数" 0 --> 241
-    bar [0, 0, 0, 21, 4, 2, 5, 41, 201, 155, 132, 65, 64]
-    line [0, 0, 0, 21, 4, 2, 5, 41, 201, 155, 132, 65, 64]
+    x-axis ["05-22", "05-28", "06-04", "06-11", "06-18", "06-25", "07-02", "07-09", "07-16", "07-23", "07-30", "08-06", "08-13"]
+    y-axis "提交数" 0 --> 217
+    bar [0, 0, 0, 24, 7, 2, 6, 83, 181, 148, 132, 85, 58]
+    line [0, 0, 0, 24, 7, 2, 6, 83, 181, 148, 132, 85, 58]
 ```
 
 <!-- CHART_DAILY:END -->
@@ -59,15 +59,16 @@ xychart-beta
 <!-- RANKING:START -->
 | 排名 | 成员 | 提交数 |
 |---:|:---|---:|
-| 🥇 | [@Trirrin](https://github.com/Trirrin) | 558 |
+| 🥇 | [@Trirrin](https://github.com/Trirrin) | 564 |
 | 🥈 | [@mgHurryo](https://github.com/mgHurryo) | 109 |
-| 🥉 | [@Chonghua-05](https://github.com/Chonghua-05) | 8 |
-| #4 | [@xpple](https://github.com/xpple) _(外部贡献者)_ | 6 |
-| #5 | [@lithodoradiffusa](https://github.com/lithodoradiffusa) _(外部贡献者)_ | 3 |
-| #6 | [@Spagles](https://github.com/Spagles) _(外部贡献者)_ | 2 |
-| #7 | [@yqs112358](https://github.com/yqs112358) _(外部贡献者)_ | 2 |
-| #8 | [@Bishops-exe](https://github.com/Bishops-exe) _(外部贡献者)_ | 1 |
-| #9 | [@Copilot](https://github.com/Copilot) _(外部贡献者)_ | 1 |
+| 🥉 | [@Fallen-Breath](https://github.com/Fallen-Breath) _(外部贡献者)_ | 35 |
+| #4 | [@Chonghua-05](https://github.com/Chonghua-05) | 8 |
+| #5 | [@xpple](https://github.com/xpple) _(外部贡献者)_ | 6 |
+| #6 | [@lithodoradiffusa](https://github.com/lithodoradiffusa) _(外部贡献者)_ | 3 |
+| #7 | [@Spagles](https://github.com/Spagles) _(外部贡献者)_ | 2 |
+| #8 | [@yqs112358](https://github.com/yqs112358) _(外部贡献者)_ | 2 |
+| #9 | [@Bishops-exe](https://github.com/Bishops-exe) _(外部贡献者)_ | 1 |
+| #10 | [@Copilot](https://github.com/Copilot) _(外部贡献者)_ | 1 |
 
 <!-- RANKING:END -->
 
@@ -79,28 +80,28 @@ xychart-beta
 ```mermaid
 pie showData
     title 语言占比(代码行数,活跃仓库合计)
-    "Java" : 139982
+    "Java" : 167378
     "C" : 31168
     "C/C++ Header" : 29063
-    "JSON" : 22934
+    "JSON" : 23446
     "Vuejs Component" : 16506
     "Go" : 15255
     "Kotlin" : 15071
-    "TypeScript" : 10401
-    "Others" : 29491
+    "Markdown" : 12578
+    "Others" : 35513
 ```
 
 | 排名 | 语言 | 占比 | 代码行数 |
 |---:|:---|---:|---:|
-| #1 | Java | 45.2% | 139,982 |
-| #2 | C | 10.1% | 31,168 |
-| #3 | C/C++ Header | 9.4% | 29,063 |
-| #4 | JSON | 7.4% | 22,934 |
-| #5 | Vuejs Component | 5.3% | 16,506 |
-| #6 | Go | 4.9% | 15,255 |
-| #7 | Kotlin | 4.9% | 15,071 |
-| #8 | TypeScript | 3.4% | 10,401 |
-| — | 其他 | 9.5% | 29,491 |
+| #1 | Java | 48.4% | 167,378 |
+| #2 | C | 9.0% | 31,168 |
+| #3 | C/C++ Header | 8.4% | 29,063 |
+| #4 | JSON | 6.8% | 23,446 |
+| #5 | Vuejs Component | 4.8% | 16,506 |
+| #6 | Go | 4.4% | 15,255 |
+| #7 | Kotlin | 4.4% | 15,071 |
+| #8 | Markdown | 3.6% | 12,578 |
+| — | 其他 | 10.3% | 35,513 |
 
 <!-- LANGUAGES:END -->
 
@@ -109,7 +110,7 @@ pie showData
 <div align="center">
 
 <sub>统计由 GitHub Actions 每日自动刷新 &middot; 最近刷新:<!-- UPDATED:START -->
-2026-08-18 04:00 UTC
+2026-08-19 04:02 UTC
 <!-- UPDATED:END --></sub>
 
 </div>
