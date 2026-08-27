@@ -81,12 +81,12 @@ pie showData
     "Java" : 150374
     "C" : 31168
     "C/C++ Header" : 29063
-    "JSON" : 23078
+    "JSON" : 23067
     "Vuejs Component" : 16506
     "Go" : 15255
     "Kotlin" : 15071
     "TypeScript" : 12060
-    "Others" : 30603
+    "Others" : 30601
 ```
 
 | 排名 | 语言 | 占比 | 代码行数 |
@@ -94,12 +94,12 @@ pie showData
 | #1 | Java | 46.5% | 150,374 |
 | #2 | C | 9.6% | 31,168 |
 | #3 | C/C++ Header | 9.0% | 29,063 |
-| #4 | JSON | 7.1% | 23,078 |
+| #4 | JSON | 7.1% | 23,067 |
 | #5 | Vuejs Component | 5.1% | 16,506 |
 | #6 | Go | 4.7% | 15,255 |
 | #7 | Kotlin | 4.7% | 15,071 |
 | #8 | TypeScript | 3.7% | 12,060 |
-| — | 其他 | 9.5% | 30,603 |
+| — | 其他 | 9.5% | 30,601 |
 
 <!-- LANGUAGES:END -->
 
@@ -108,7 +108,7 @@ pie showData
 <div align="center">
 
 <sub>统计由 GitHub Actions 每日自动刷新 &middot; 最近刷新:<!-- UPDATED:START -->
-2026-08-27 10:13 UTC
+2026-08-27 14:17 UTC
 <!-- UPDATED:END --></sub>
 
 </div>
