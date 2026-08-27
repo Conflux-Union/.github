@@ -97,9 +97,11 @@ def load_overrides() -> tuple[set[str], set[str]]:
     return extra, exclude
 
 
-def commits_since(repo: str, since_iso: str) -> list[dict]:
+def commits_since(repo: dict, since_iso: str) -> list[dict]:
+    if repo.get("fork") and repo.get("created_at"):
+        since_iso = max(since_iso, repo["created_at"])
     return paginate(
-        f"/repos/{ORG}/{repo}/commits",
+        f"/repos/{ORG}/{repo['name']}/commits",
         {"since": since_iso},
         cap=10,
     )
@@ -306,7 +308,7 @@ def main() -> None:
     for repo in repos:
         name = repo["name"]
         try:
-            commits = commits_since(name, since_iso)
+            commits = commits_since(repo, since_iso)
         except HTTPError as e:
             print(f"skip {name}: HTTP {e.code}", file=sys.stderr)
             continue
