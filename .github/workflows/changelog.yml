@@ -1,0 +1,380 @@
+name: Changelog
+
+# Shared release-changelog generator for Conflux-Union repositories.
+#
+# Call it from a release workflow:
+#
+#   jobs:
+#     Generate-Changelog:
+#       uses: Conflux-Union/.github/.github/workflows/changelog.yml@v1
+#       with:
+#         tag: v1.2.3
+#         exclude: |
+#           src/test/**
+#           docs/**
+#       secrets: inherit   # picks up the org-level MIMO_API_KEY secret
+#
+# The bilingual changelog lands in the caller's run as the
+# `release-changelog` artifact (release-notes/changelog.md), so downstream
+# jobs can download it with actions/download-artifact as before.
+# Callers that cannot inherit the org secret pass their own instead:
+#
+#       secrets:
+#         mimo-api-key: ${{ secrets.CHANGELOG_API_KEY }}
+
+on:
+  workflow_call:
+    inputs:
+      tag:
+        description: 'Release tag being generated, e.g. v1.2.3.'
+        required: true
+        type: string
+      tag-pattern:
+        description: 'git describe --match pattern used to locate the previous release tag.'
+        required: false
+        type: string
+        default: 'v[0-9]*.[0-9]*.[0-9]*'
+      exclude:
+        description: 'Newline-separated pathspec excludes applied to commit/diff collection.'
+        required: false
+        type: string
+        default: '.github/**'
+      model:
+        description: 'Model behind the changelog agent.'
+        required: false
+        type: string
+        default: 'mimo-v2.6-flash'
+      api-base:
+        description: 'Anthropic-compatible relay base URL.'
+        required: false
+        type: string
+        default: 'https://cf.api.fan'
+      tooling-ref:
+        description: 'Branch or tag of this repository the agent script is cloned from.'
+        required: false
+        type: string
+        default: 'v1'
+      artifact-name:
+        description: 'Name of the uploaded changelog artifact.'
+        required: false
+        type: string
+        default: 'release-changelog'
+    secrets:
+      mimo-api-key:
+        description: 'Explicit API key; falls back to the org-level MIMO_API_KEY secret.'
+        required: false
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag being generated, e.g. v1.2.3.'
+        required: true
+        type: string
+      exclude:
+        description: 'Newline-separated pathspec excludes applied to commit/diff collection.'
+        required: false
+        type: string
+        default: '.github/**'
+      tooling-ref:
+        description: 'Branch or tag of this repository the agent script is cloned from.'
+        required: false
+        type: string
+        default: 'v1'
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+jobs:
+  changelog:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Clone changelog tooling
+        env:
+          TOOLING_REF: ${{ inputs.tooling-ref || 'v1' }}
+        run: |
+          set -euo pipefail
+          git clone --depth 1 --branch "$TOOLING_REF" \
+            https://github.com/Conflux-Union/.github "$RUNNER_TEMP/changelog-tooling"
+      - name: Set up changelog agent dependencies
+        run: |
+          set -euo pipefail
+          python3 -m venv "$RUNNER_TEMP/changelog-venv"
+          "$RUNNER_TEMP/changelog-venv/bin/pip" install --disable-pip-version-check --quiet 'anthropic==1.8.0'
+      - name: Generate user-facing changelog
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          MIMO_API_KEY: ${{ secrets.mimo-api-key || secrets.MIMO_API_KEY }}
+          MIMO_MODEL: ${{ inputs.model || 'mimo-v2.6-flash' }}
+          MIMO_API_BASE: ${{ inputs.api-base || 'https://cf.api.fan' }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          CURRENT_TAG_INPUT: ${{ inputs.tag }}
+          TAG_PATTERN: ${{ inputs.tag-pattern || 'v[0-9]*.[0-9]*.[0-9]*' }}
+          EXCLUDE_PATHS: ${{ inputs.exclude || '.github/**' }}
+        run: |
+          set -euo pipefail
+
+          if [[ -z "${MIMO_API_KEY:-}" ]]; then
+            echo "MIMO_API_KEY is not configured" >&2
+            exit 1
+          fi
+
+          CURRENT_TAG="$CURRENT_TAG_INPUT"
+
+          if [[ "$GITHUB_EVENT_NAME" == "release" && "$RELEASE_TAG" != "$CURRENT_TAG" ]]; then
+            echo "Release tag $RELEASE_TAG does not match requested tag $CURRENT_TAG" >&2
+            exit 1
+          fi
+
+          if [[ "$GITHUB_EVENT_NAME" == "release" ]]; then
+            CURRENT_REF="$CURRENT_TAG"
+          else
+            CURRENT_REF="$GITHUB_SHA"
+          fi
+
+          PREVIOUS_TAG=$(git describe --tags --abbrev=0 \
+            --match "$TAG_PATTERN" --exclude "$CURRENT_TAG" \
+            "$CURRENT_REF" 2>/dev/null || true)
+
+          if [[ -n "$PREVIOUS_TAG" ]]; then
+            COMMIT_RANGE="$PREVIOUS_TAG..$CURRENT_REF"
+            DIFF_RANGE="$COMMIT_RANGE"
+            BASE_DESCRIPTION="$PREVIOUS_TAG"
+            REFERENCE_SINCE=$(git show -s --format=%cI "$PREVIOUS_TAG")
+          else
+            COMMIT_RANGE="$CURRENT_REF"
+            EMPTY_TREE=$(git hash-object -t tree /dev/null)
+            DIFF_RANGE="$EMPTY_TREE..$CURRENT_REF"
+            BASE_DESCRIPTION="the beginning of the project"
+            REFERENCE_SINCE=$(git log --reverse --format=%cI "$CURRENT_REF" | sed -n '1p')
+          fi
+
+          CHANGELOG_PATHS=(.)
+          while IFS= read -r excluded; do
+            [[ -z "$excluded" ]] && continue
+            CHANGELOG_PATHS+=(":(exclude)$excluded")
+          done <<< "$EXCLUDE_PATHS"
+
+          git log --reverse --no-merges \
+            --perl-regexp --invert-grep --grep='^(test|docs|chore)(\([^)]*\))?:' \
+            --format='Subject: %s%n%b%n---' \
+            "$COMMIT_RANGE" -- "${CHANGELOG_PATHS[@]}" > commit-data.txt
+          if [[ ! -s commit-data.txt ]]; then
+            printf '%s\n' 'No commits were found in this release range.' > commit-data.txt
+          fi
+
+          git diff --find-renames --stat "$DIFF_RANGE" \
+            -- "${CHANGELOG_PATHS[@]}" > file-changes.txt
+
+          # What earlier releases already shipped, so the agent can tell new
+          # changes from old ones without burning tool rounds on git archaeology.
+          if [[ -n "$PREVIOUS_TAG" ]]; then
+            git log --oneline --no-merges -30 "$PREVIOUS_TAG" > prior-history.txt
+          else
+            : > prior-history.txt
+          fi
+
+          # The diff itself, embedded in the agent prompt (capped by the
+          # agent): reading it costs zero tool rounds, so small releases can
+          # be answered straight from the prompt.
+          git diff --find-renames "$DIFF_RANGE" \
+            -- "${CHANGELOG_PATHS[@]}" > release-diff.txt
+
+          api_get() {
+            local path="$1"
+            curl --silent --show-error --fail-with-body \
+              --retry 3 \
+              --retry-all-errors \
+              --connect-timeout 15 \
+              --max-time 60 \
+              --header "Authorization: Bearer $GITHUB_TOKEN" \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2026-03-10' \
+              "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/$path"
+          }
+
+          printf '%s\n' '[]' > pull-request-context.json
+          while IFS= read -r commit_sha; do
+            api_get "commits/$commit_sha/pulls?per_page=100" \
+              | jq 'map(select(.merged_at != null) | {
+                  id: ("pr-" + (.number | tostring)),
+                  type: "pull_request",
+                  number,
+                  title: (.title | .[0:500]),
+                  url: .html_url,
+                  body: ((.body // "") | .[0:2500]),
+                  merged_at
+                })' > commit-pull-requests.json
+            jq -s 'add | unique_by(.id)' \
+              pull-request-context.json commit-pull-requests.json \
+              > pull-request-context.next.json
+            mv pull-request-context.next.json pull-request-context.json
+          done < <(git rev-list "$COMMIT_RANGE" -- "${CHANGELOG_PATHS[@]}")
+
+          jq 'sort_by(.merged_at) | reverse | .[:40] | map(del(.merged_at))' \
+            pull-request-context.json > pull-request-context.limited.json
+
+          {
+            git log --format='%B' "$COMMIT_RANGE" -- "${CHANGELOG_PATHS[@]}"
+            jq -r '.[] | .title, .body' pull-request-context.limited.json
+          } > reference-text.txt
+          grep -oE '#[0-9]+' reference-text.txt \
+            | tr -d '#' \
+            | sort -nu \
+            | sed -n '1,60p' \
+            > explicit-issue-numbers.txt || true
+
+          printf '%s\n' '[]' > explicit-issue-context.json
+          while IFS= read -r issue_number; do
+            if api_get "issues/$issue_number" > explicit-issue.json; then
+              jq '[select(.pull_request | not) | {
+                    id: ("issue-" + (.number | tostring)),
+                    type: "issue",
+                    number,
+                    title: (.title | .[0:500]),
+                    url: .html_url,
+                    body: ((.body // "") | .[0:2500])
+                  }]' explicit-issue.json > explicit-issue.item.json
+              jq -s 'add | unique_by(.id)' \
+                explicit-issue-context.json explicit-issue.item.json \
+                > explicit-issue-context.next.json
+              mv explicit-issue-context.next.json explicit-issue-context.json
+            fi
+          done < explicit-issue-numbers.txt
+
+          printf '%s\n' '[]' > closed-issue-context.json
+          REFERENCE_SINCE_ENCODED=$(jq -rn --arg value "$REFERENCE_SINCE" '$value | @uri')
+          for page in {1..10}; do
+            api_get "issues?state=closed&sort=updated&direction=desc&since=$REFERENCE_SINCE_ENCODED&per_page=100&page=$page" \
+              > closed-issues-page.json
+            PAGE_SIZE=$(jq 'length' closed-issues-page.json)
+            jq --arg since "$REFERENCE_SINCE" '
+              map(select(
+                (.pull_request | not)
+                and .closed_at != null
+                and .closed_at >= $since
+              ))
+              | map({
+                  id: ("issue-" + (.number | tostring)),
+                  type: "issue",
+                  number,
+                  title: (.title | .[0:500]),
+                  url: .html_url,
+                  body: ((.body // "") | .[0:2500]),
+                  closed_at
+                })
+            ' closed-issues-page.json > closed-issues-page.context.json
+            jq -s 'add | unique_by(.id)' \
+              closed-issue-context.json closed-issues-page.context.json \
+              > closed-issue-context.next.json
+            mv closed-issue-context.next.json closed-issue-context.json
+            if (( PAGE_SIZE < 100 )); then
+              break
+            fi
+          done
+
+          jq 'sort_by(.closed_at) | reverse | .[:60] | map(del(.closed_at))' \
+            closed-issue-context.json > closed-issue-context.limited.json
+          jq -s 'add | unique_by(.id)' \
+            explicit-issue-context.json closed-issue-context.limited.json \
+            > issue-context.json
+
+          jq -s 'add | unique_by(.id)' \
+            pull-request-context.limited.json issue-context.json \
+            > reference-context.json
+
+          # Agent mode: the model investigates the repository on its own
+          # through read-only tools (see scripts/changelog_agent.py) instead of
+          # only receiving the pre-collected context above.
+          "$RUNNER_TEMP/changelog-venv/bin/python" "$RUNNER_TEMP/changelog-tooling/scripts/changelog_agent.py" \
+            --repo "$GITHUB_WORKSPACE" \
+            --current "$CURRENT_TAG" \
+            --base "$BASE_DESCRIPTION" \
+            --commit-range "$COMMIT_RANGE" \
+            --diff-range "$DIFF_RANGE" \
+            --commits commit-data.txt \
+            --files file-changes.txt \
+            --prior-history prior-history.txt \
+            --diff release-diff.txt \
+            --references reference-context.json \
+            --output mimo-response.json
+
+          if ! jq -er --slurpfile references reference-context.json '
+            ($references[0] | map(.id)) as $allowed_references
+            |
+            select(.choices[0].finish_reason == "stop")
+            |
+            .choices[0].message.content
+            | select(type == "string" and length > 0)
+            | sub("^```(?:json)?[[:space:]]*"; "")
+            | sub("[[:space:]]*```$"; "")
+            | fromjson
+            | select(type == "object")
+            | select((keys - ["fixes", "improvements"]) | length == 0)
+            | select(.improvements | type == "array")
+            | select(.fixes | type == "array")
+            | select((.improvements | length) + (.fixes | length) > 0)
+            | select(all(.improvements[], .fixes[];
+                type == "object"
+                and ((keys - ["en", "references", "zh"]) | length == 0)
+                and (.en | type == "string" and length > 0)
+                and (.zh | type == "string" and length > 0)
+                and (.en | test("[\\r\\n]") | not)
+                and (.zh | test("[\\r\\n]") | not)
+                and (.references | type == "array")
+                and (.references | length == (unique | length))
+                and all(.references[];
+                  type == "string"
+                  and (. as $id | $allowed_references | index($id) != null))))
+          ' mimo-response.json > generated-changelog.json; then
+            echo "MiMo agent returned an invalid bilingual changelog payload" >&2
+            printf '%s\n' \
+              "content_bytes=$(jq -r '.choices[0].message.content // ""' mimo-response.json | wc -c)" >&2
+            exit 1
+          fi
+
+          jq -r --slurpfile references reference-context.json '
+            ($references[0] | map({key: .id, value: .}) | from_entries) as $reference_by_id
+            |
+            def citations($ids):
+              ($ids | map(
+                $reference_by_id[.]
+                | if .type == "pull_request"
+                  then "[PR #\(.number)](\(.url))"
+                  else "[Issue #\(.number)](\(.url))"
+                  end
+              )) as $links
+              | if ($links | length) == 0
+                then ""
+                else " (" + ($links | join(", ")) + ")"
+                end;
+            def section($heading; $items; $language):
+              if ($items | length) == 0 then null
+              else "## \($heading)\n\n" + ($items | map("- " + .[$language] + citations(.references)) | join("\n"))
+              end;
+            [
+              ([section("Improvements"; .improvements; "en"),
+                section("Fixes"; .fixes; "en")] | map(select(. != null)) | join("\n\n")),
+              "---",
+              ([section("改进"; .improvements; "zh"),
+                section("修复"; .fixes; "zh")] | map(select(. != null)) | join("\n\n"))
+            ] | join("\n\n")
+          ' generated-changelog.json > generated-changelog.md
+
+          mkdir -p release-notes
+          cp generated-changelog.md release-notes/changelog.md
+          if [[ -n "$PREVIOUS_TAG" ]]; then
+            printf '\n\n**Full commit history:** [`%s...%s`](%s/%s/compare/%s...%s)\n' \
+              "$PREVIOUS_TAG" "$CURRENT_TAG" "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" \
+              "$PREVIOUS_TAG" "$CURRENT_TAG" >> release-notes/changelog.md
+          fi
+      - name: Upload changelog
+        uses: actions/upload-artifact@v5
+        with:
+          name: ${{ inputs.artifact-name || 'release-changelog' }}
+          path: release-notes/changelog.md
+          if-no-files-found: error
+          retention-days: 1
