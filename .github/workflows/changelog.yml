@@ -6,7 +6,7 @@ name: Changelog
 #
 #   jobs:
 #     Generate-Changelog:
-#       uses: Conflux-Union/.github/.github/workflows/changelog.yml@v1
+#       uses: Conflux-Union/.github/.github/workflows/changelog.yml@v2
 #       with:
 #         tag: v1.2.3
 #         exclude: |
@@ -15,12 +15,17 @@ name: Changelog
 #       secrets: inherit   # picks up the org-level MIMO_API_KEY secret
 #
 # The bilingual changelog lands in the caller's run as the
-# `release-changelog` artifact (release-notes/changelog.md), so downstream
-# jobs can download it with actions/download-artifact as before.
+# `release-changelog` artifact (release-notes/changelog.md plus the raw
+# generated-changelog.json for callers with their own rendering), so
+# downstream jobs can download it with actions/download-artifact as before.
 # Callers that cannot inherit the org secret pass their own instead:
 #
 #       secrets:
 #         mimo-api-key: ${{ secrets.CHANGELOG_API_KEY }}
+#
+# Upgrade rule: changes ship behind a NEW tag (v1, v2, ...). Never move an
+# existing tag, and keep this workflow's tooling-ref default equal to the
+# newest tag, because the agent script is cloned by that ref.
 
 on:
   workflow_call:
@@ -34,6 +39,11 @@ on:
         required: false
         type: string
         default: 'v[0-9]*.[0-9]*.[0-9]*'
+      previous-tag:
+        description: 'Explicit previous release tag; overrides describe-based discovery when set.'
+        required: false
+        type: string
+        default: ''
       exclude:
         description: 'Newline-separated pathspec excludes applied to commit/diff collection.'
         required: false
@@ -53,7 +63,7 @@ on:
         description: 'Branch or tag of this repository the agent script is cloned from.'
         required: false
         type: string
-        default: 'v1'
+        default: 'v2'
       artifact-name:
         description: 'Name of the uploaded changelog artifact.'
         required: false
@@ -78,7 +88,7 @@ on:
         description: 'Branch or tag of this repository the agent script is cloned from.'
         required: false
         type: string
-        default: 'v1'
+        default: 'v2'
 permissions:
   contents: read
   issues: read
@@ -94,7 +104,7 @@ jobs:
           fetch-depth: 0
       - name: Clone changelog tooling
         env:
-          TOOLING_REF: ${{ inputs.tooling-ref || 'v1' }}
+          TOOLING_REF: ${{ inputs.tooling-ref || 'v2' }}
         run: |
           set -euo pipefail
           git clone --depth 1 --branch "$TOOLING_REF" \
@@ -104,6 +114,10 @@ jobs:
           set -euo pipefail
           python3 -m venv "$RUNNER_TEMP/changelog-venv"
           "$RUNNER_TEMP/changelog-venv/bin/pip" install --disable-pip-version-check --quiet 'anthropic==1.8.0'
+      - name: Run agent self-test
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/changelog-venv/bin/python" "$RUNNER_TEMP/changelog-tooling/scripts/changelog_agent.py" --self-test
       - name: Generate user-facing changelog
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -112,6 +126,7 @@ jobs:
           MIMO_API_BASE: ${{ inputs.api-base || 'https://cf.api.fan' }}
           RELEASE_TAG: ${{ github.event.release.tag_name }}
           CURRENT_TAG_INPUT: ${{ inputs.tag }}
+          PREVIOUS_TAG_INPUT: ${{ inputs.previous-tag }}
           TAG_PATTERN: ${{ inputs.tag-pattern || 'v[0-9]*.[0-9]*.[0-9]*' }}
           EXCLUDE_PATHS: ${{ inputs.exclude || '.github/**' }}
         run: |
@@ -135,9 +150,16 @@ jobs:
             CURRENT_REF="$GITHUB_SHA"
           fi
 
-          PREVIOUS_TAG=$(git describe --tags --abbrev=0 \
-            --match "$TAG_PATTERN" --exclude "$CURRENT_TAG" \
-            "$CURRENT_REF" 2>/dev/null || true)
+          # An explicit previous-tag input wins: callers with tag schemes
+          # describe cannot rank (e.g. v1.0.7-fix-2(33) version-code tags)
+          # compute their own neighbor and pass it in.
+          if [[ -n "${PREVIOUS_TAG_INPUT:-}" ]]; then
+            PREVIOUS_TAG="$PREVIOUS_TAG_INPUT"
+          else
+            PREVIOUS_TAG=$(git describe --tags --abbrev=0 \
+              --match "$TAG_PATTERN" --exclude "$CURRENT_TAG" \
+              "$CURRENT_REF" 2>/dev/null || true)
+          fi
 
           if [[ -n "$PREVIOUS_TAG" ]]; then
             COMMIT_RANGE="$PREVIOUS_TAG..$CURRENT_REF"
@@ -366,6 +388,9 @@ jobs:
 
           mkdir -p release-notes
           cp generated-changelog.md release-notes/changelog.md
+          # Raw validated JSON for callers that render their own formats
+          # from the same submission.
+          cp generated-changelog.json release-notes/generated-changelog.json
           if [[ -n "$PREVIOUS_TAG" ]]; then
             printf '\n\n**Full commit history:** [`%s...%s`](%s/%s/compare/%s...%s)\n' \
               "$PREVIOUS_TAG" "$CURRENT_TAG" "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" \
@@ -375,6 +400,6 @@ jobs:
         uses: actions/upload-artifact@v5
         with:
           name: ${{ inputs.artifact-name || 'release-changelog' }}
-          path: release-notes/changelog.md
+          path: release-notes/
           if-no-files-found: error
           retention-days: 1
