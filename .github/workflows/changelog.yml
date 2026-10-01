@@ -6,7 +6,7 @@ name: Changelog
 #
 #   jobs:
 #     Generate-Changelog:
-#       uses: Conflux-Union/.github/.github/workflows/changelog.yml@v2
+#       uses: Conflux-Union/.github/.github/workflows/changelog.yml@v3
 #       with:
 #         tag: v1.2.3
 #         exclude: |
@@ -63,7 +63,7 @@ on:
         description: 'Branch or tag of this repository the agent script is cloned from.'
         required: false
         type: string
-        default: 'v2'
+        default: 'v3'
       artifact-name:
         description: 'Name of the uploaded changelog artifact.'
         required: false
@@ -88,7 +88,7 @@ on:
         description: 'Branch or tag of this repository the agent script is cloned from.'
         required: false
         type: string
-        default: 'v2'
+        default: 'v3'
 permissions:
   contents: read
   issues: read
@@ -104,7 +104,7 @@ jobs:
           fetch-depth: 0
       - name: Clone changelog tooling
         env:
-          TOOLING_REF: ${{ inputs.tooling-ref || 'v2' }}
+          TOOLING_REF: ${{ inputs.tooling-ref || 'v3' }}
         run: |
           set -euo pipefail
           git clone --depth 1 --branch "$TOOLING_REF" \
@@ -389,8 +389,28 @@ jobs:
           mkdir -p release-notes
           cp generated-changelog.md release-notes/changelog.md
           # Raw validated JSON for callers that render their own formats
-          # from the same submission.
-          cp generated-changelog.json release-notes/generated-changelog.json
+          # from the same submission, with each item's citations embedded
+          # as a ready-to-append markdown suffix so those callers do not
+          # need the reference context to reproduce them.
+          jq --slurpfile references reference-context.json '
+            ($references[0] | map({key: .id, value: .}) | from_entries) as $reference_by_id
+            |
+            def citations($ids):
+              ($ids | map(
+                $reference_by_id[.]
+                | if .type == "pull_request"
+                  then "[PR #\(.number)](\(.url))"
+                  else "[Issue #\(.number)](\(.url))"
+                  end
+              )) as $links
+              | if ($links | length) == 0
+                then ""
+                else " (" + ($links | join(", ")) + ")"
+                end;
+            .improvements |= map(. + {citations: citations(.references)})
+            | .fixes |= map(. + {citations: citations(.references)})
+          ' generated-changelog.json > generated-changelog.enriched.json
+          mv generated-changelog.enriched.json release-notes/generated-changelog.json
           if [[ -n "$PREVIOUS_TAG" ]]; then
             printf '\n\n**Full commit history:** [`%s...%s`](%s/%s/compare/%s...%s)\n' \
               "$PREVIOUS_TAG" "$CURRENT_TAG" "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" \
