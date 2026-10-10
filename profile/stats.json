@@ -1,15 +1,15 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 1203,
+  "recent_commits": 1200,
   "active_repos": 20,
   "public_repos": 39,
   "members": 10,
-  "updated_at": "2026-10-09 10:40 UTC",
+  "updated_at": "2026-10-10 09:56 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 1031
+      "commits": 1027
     },
     {
       "login": "mgHurryo",
@@ -25,7 +25,7 @@
     },
     {
       "login": "Nero978",
-      "commits": 2
+      "commits": 3
     },
     {
       "login": "Spagles",
@@ -96,7 +96,6 @@
     "2026-09-06": 5,
     "2026-07-15": 43,
     "2026-07-13": 6,
-    "2026-07-11": 6,
     "2026-08-06": 14,
     "2026-07-30": 21,
     "2026-09-21": 9,
@@ -106,7 +105,8 @@
     "2026-08-27": 7,
     "2026-07-20": 26,
     "2026-07-17": 63,
-    "2026-10-09": 7,
+    "2026-10-10": 2,
+    "2026-10-09": 8,
     "2026-10-08": 9,
     "2026-10-07": 5,
     "2026-10-06": 4,
@@ -146,13 +146,13 @@
     "2026-07-18": 9
   },
   "languages": {
-    "Java": 187155,
+    "Java": 187317,
     "INI": 405,
     "YAML": 6978,
-    "Markdown": 9351,
+    "Markdown": 9492,
     "Bourne Shell": 1178,
     "Gradle": 2351,
-    "JSON": 31567,
+    "JSON": 31572,
     "DOS Batch": 700,
     "Properties": 431,
     "Text": 513,
