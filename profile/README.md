@@ -29,7 +29,7 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 <!-- STATS:START -->
 | 指标 | 数值 |
 |---|---|
-| 近 90 天提交总数 | **1191** |
+| 近 90 天提交总数 | **1180** |
 | 公开仓库总数 | **39** |
 | 活跃仓库数(90d) | **19** |
 | 成员总数 | **10** |
@@ -44,10 +44,10 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 ```mermaid
 xychart-beta
     title "近 90 天每周提交数(按自然周聚合)"
-    x-axis ["07-15", "07-21", "07-28", "08-04", "08-11", "08-18", "08-25", "09-01", "09-08", "09-15", "09-22", "09-29", "10-06"]
-    y-axis "提交数" 0 --> 235
-    bar [151, 196, 139, 60, 80, 68, 81, 78, 91, 48, 68, 86, 35]
-    line [151, 196, 139, 60, 80, 68, 81, 78, 91, 48, 68, 86, 35]
+    x-axis ["07-16", "07-22", "07-29", "08-05", "08-12", "08-19", "08-26", "09-02", "09-09", "09-16", "09-23", "09-30", "10-07"]
+    y-axis "提交数" 0 --> 190
+    bar [155, 159, 133, 69, 75, 89, 62, 86, 74, 54, 61, 90, 40]
+    line [155, 159, 133, 69, 75, 89, 62, 86, 74, 54, 61, 90, 40]
 ```
 
 <!-- CHART_DAILY:END -->
@@ -59,18 +59,19 @@ xychart-beta
 <!-- RANKING:START -->
 | 排名 | 成员 | 提交数 |
 |---:|:---|---:|
-| 🥇 | [@Trirrin](https://github.com/Trirrin) | 1018 |
-| 🥈 | [@mgHurryo](https://github.com/mgHurryo) | 130 |
+| 🥇 | [@Trirrin](https://github.com/Trirrin) | 1012 |
+| 🥈 | [@mgHurryo](https://github.com/mgHurryo) | 120 |
 | 🥉 | [@xpple](https://github.com/xpple) _(外部贡献者)_ | 18 |
-| #4 | [@Chonghua-05](https://github.com/Chonghua-05) | 12 |
-| #5 | [@Nero978](https://github.com/Nero978) _(外部贡献者)_ | 3 |
-| #6 | [@Spagles](https://github.com/Spagles) _(外部贡献者)_ | 2 |
-| #7 | [@Whisperlyric](https://github.com/Whisperlyric) _(外部贡献者)_ | 2 |
-| #8 | [@yqs112358](https://github.com/yqs112358) _(外部贡献者)_ | 2 |
-| #9 | [@Bishops-exe](https://github.com/Bishops-exe) _(外部贡献者)_ | 1 |
-| #10 | [@Copilot](https://github.com/Copilot) _(外部贡献者)_ | 1 |
-| #11 | [@Nel-S](https://github.com/Nel-S) _(外部贡献者)_ | 1 |
-| #12 | [@zQianWan](https://github.com/zQianWan) | 1 |
+| #4 | [@Chonghua-05](https://github.com/Chonghua-05) | 14 |
+| #5 | [@late-maple](https://github.com/late-maple) _(外部贡献者)_ | 3 |
+| #6 | [@Nero978](https://github.com/Nero978) _(外部贡献者)_ | 3 |
+| #7 | [@Spagles](https://github.com/Spagles) _(外部贡献者)_ | 2 |
+| #8 | [@Whisperlyric](https://github.com/Whisperlyric) _(外部贡献者)_ | 2 |
+| #9 | [@yqs112358](https://github.com/yqs112358) _(外部贡献者)_ | 2 |
+| #10 | [@Bishops-exe](https://github.com/Bishops-exe) _(外部贡献者)_ | 1 |
+| #11 | [@Copilot](https://github.com/Copilot) _(外部贡献者)_ | 1 |
+| #12 | [@Nel-S](https://github.com/Nel-S) _(外部贡献者)_ | 1 |
+| #13 | [@zQianWan](https://github.com/zQianWan) | 1 |
 
 <!-- RANKING:END -->
 
@@ -82,28 +83,28 @@ xychart-beta
 ```mermaid
 pie showData
     title 语言占比(代码行数,活跃仓库合计)
-    "Java" : 186551
+    "Java" : 186650
     "C" : 35143
     "C/C++ Header" : 31826
-    "JSON" : 31496
+    "JSON" : 31494
     "TypeScript" : 25449
     "Kotlin" : 23061
     "Go" : 21334
     "Vuejs Component" : 17889
-    "Others" : 42787
+    "Others" : 42798
 ```
 
 | 排名 | 语言 | 占比 | 代码行数 |
 |---:|:---|---:|---:|
-| #1 | Java | 44.9% | 186,551 |
+| #1 | Java | 44.9% | 186,650 |
 | #2 | C | 8.5% | 35,143 |
 | #3 | C/C++ Header | 7.7% | 31,826 |
-| #4 | JSON | 7.6% | 31,496 |
+| #4 | JSON | 7.6% | 31,494 |
 | #5 | TypeScript | 6.1% | 25,449 |
 | #6 | Kotlin | 5.5% | 23,061 |
 | #7 | Go | 5.1% | 21,334 |
 | #8 | Vuejs Component | 4.3% | 17,889 |
-| — | 其他 | 10.3% | 42,787 |
+| — | 其他 | 10.3% | 42,798 |
 
 <!-- LANGUAGES:END -->
 
@@ -112,7 +113,7 @@ pie showData
 <div align="center">
 
 <sub>统计由 GitHub Actions 每日自动刷新 &middot; 最近刷新:<!-- UPDATED:START -->
-2026-10-12 10:59 UTC
+2026-10-13 10:42 UTC
 <!-- UPDATED:END --></sub>
 
 </div>
