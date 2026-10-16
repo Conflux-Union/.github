@@ -29,7 +29,7 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 <!-- STATS:START -->
 | 指标 | 数值 |
 |---|---|
-| 近 90 天提交总数 | **1140** |
+| 近 90 天提交总数 | **1087** |
 | 公开仓库总数 | **39** |
 | 活跃仓库数(90d) | **19** |
 | 成员总数 | **10** |
@@ -44,10 +44,10 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 ```mermaid
 xychart-beta
     title "近 90 天每周提交数(按自然周聚合)"
-    x-axis ["07-18", "07-24", "07-31", "08-07", "08-14", "08-21", "08-28", "09-04", "09-11", "09-18", "09-25", "10-02", "10-09"]
-    y-axis "提交数" 0 --> 180
-    bar [132, 150, 118, 78, 71, 82, 78, 57, 71, 84, 63, 68, 38]
-    line [132, 150, 118, 78, 71, 82, 78, 57, 71, 84, 63, 68, 38]
+    x-axis ["07-19", "07-25", "08-01", "08-08", "08-15", "08-22", "08-29", "09-05", "09-12", "09-19", "09-26", "10-03", "10-10"]
+    y-axis "提交数" 0 --> 174
+    bar [143, 145, 112, 77, 73, 76, 77, 78, 61, 73, 71, 65, 30]
+    line [143, 145, 112, 77, 73, 76, 77, 78, 61, 73, 71, 65, 30]
 ```
 
 <!-- CHART_DAILY:END -->
@@ -59,8 +59,8 @@ xychart-beta
 <!-- RANKING:START -->
 | 排名 | 成员 | 提交数 |
 |---:|:---|---:|
-| 🥇 | [@Trirrin](https://github.com/Trirrin) | 1000 |
-| 🥈 | [@mgHurryo](https://github.com/mgHurryo) | 88 |
+| 🥇 | [@Trirrin](https://github.com/Trirrin) | 963 |
+| 🥈 | [@mgHurryo](https://github.com/mgHurryo) | 72 |
 | 🥉 | [@xpple](https://github.com/xpple) _(外部贡献者)_ | 18 |
 | #4 | [@Chonghua-05](https://github.com/Chonghua-05) | 17 |
 | #5 | [@late-maple](https://github.com/late-maple) _(外部贡献者)_ | 4 |
@@ -86,7 +86,7 @@ pie showData
     "Java" : 187669
     "C" : 35143
     "C/C++ Header" : 31826
-    "JSON" : 31511
+    "JSON" : 31513
     "TypeScript" : 25447
     "Kotlin" : 23061
     "Go" : 21334
@@ -99,7 +99,7 @@ pie showData
 | #1 | Java | 45.0% | 187,669 |
 | #2 | C | 8.4% | 35,143 |
 | #3 | C/C++ Header | 7.6% | 31,826 |
-| #4 | JSON | 7.6% | 31,511 |
+| #4 | JSON | 7.6% | 31,513 |
 | #5 | TypeScript | 6.1% | 25,447 |
 | #6 | Kotlin | 5.5% | 23,061 |
 | #7 | Go | 5.1% | 21,334 |
@@ -113,7 +113,7 @@ pie showData
 <div align="center">
 
 <sub>统计由 GitHub Actions 每日自动刷新 &middot; 最近刷新:<!-- UPDATED:START -->
-2026-10-15 08:23 UTC
+2026-10-16 08:16 UTC
 <!-- UPDATED:END --></sub>
 
 </div>
