@@ -29,7 +29,7 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 <!-- STATS:START -->
 | 指标 | 数值 |
 |---|---|
-| 近 90 天提交总数 | **1087** |
+| 近 90 天提交总数 | **1083** |
 | 公开仓库总数 | **39** |
 | 活跃仓库数(90d) | **19** |
 | 成员总数 | **10** |
@@ -44,10 +44,10 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 ```mermaid
 xychart-beta
     title "近 90 天每周提交数(按自然周聚合)"
-    x-axis ["07-19", "07-25", "08-01", "08-08", "08-15", "08-22", "08-29", "09-05", "09-12", "09-19", "09-26", "10-03", "10-10"]
-    y-axis "提交数" 0 --> 174
-    bar [143, 145, 112, 77, 73, 76, 77, 78, 61, 73, 71, 65, 30]
-    line [143, 145, 112, 77, 73, 76, 77, 78, 61, 73, 71, 65, 30]
+    x-axis ["07-20", "07-26", "08-02", "08-09", "08-16", "08-23", "08-30", "09-06", "09-13", "09-20", "09-27", "10-04", "10-11"]
+    y-axis "提交数" 0 --> 213
+    bar [178, 121, 103, 89, 56, 75, 81, 101, 48, 68, 71, 60, 28]
+    line [178, 121, 103, 89, 56, 75, 81, 101, 48, 68, 71, 60, 28]
 ```
 
 <!-- CHART_DAILY:END -->
@@ -59,10 +59,10 @@ xychart-beta
 <!-- RANKING:START -->
 | 排名 | 成员 | 提交数 |
 |---:|:---|---:|
-| 🥇 | [@Trirrin](https://github.com/Trirrin) | 963 |
+| 🥇 | [@Trirrin](https://github.com/Trirrin) | 958 |
 | 🥈 | [@mgHurryo](https://github.com/mgHurryo) | 72 |
-| 🥉 | [@xpple](https://github.com/xpple) _(外部贡献者)_ | 18 |
-| #4 | [@Chonghua-05](https://github.com/Chonghua-05) | 17 |
+| 🥉 | [@Chonghua-05](https://github.com/Chonghua-05) | 18 |
+| #4 | [@xpple](https://github.com/xpple) _(外部贡献者)_ | 18 |
 | #5 | [@late-maple](https://github.com/late-maple) _(外部贡献者)_ | 4 |
 | #6 | [@Nero978](https://github.com/Nero978) _(外部贡献者)_ | 3 |
 | #7 | [@Spagles](https://github.com/Spagles) _(外部贡献者)_ | 2 |
@@ -83,28 +83,28 @@ xychart-beta
 ```mermaid
 pie showData
     title 语言占比(代码行数,活跃仓库合计)
-    "Java" : 187669
+    "Java" : 188685
     "C" : 35143
     "C/C++ Header" : 31826
-    "JSON" : 31513
+    "JSON" : 31538
     "TypeScript" : 25447
     "Kotlin" : 23061
     "Go" : 21334
     "Vuejs Component" : 17889
-    "Others" : 42858
+    "Others" : 42860
 ```
 
 | 排名 | 语言 | 占比 | 代码行数 |
 |---:|:---|---:|---:|
-| #1 | Java | 45.0% | 187,669 |
+| #1 | Java | 45.2% | 188,685 |
 | #2 | C | 8.4% | 35,143 |
 | #3 | C/C++ Header | 7.6% | 31,826 |
-| #4 | JSON | 7.6% | 31,513 |
+| #4 | JSON | 7.5% | 31,538 |
 | #5 | TypeScript | 6.1% | 25,447 |
 | #6 | Kotlin | 5.5% | 23,061 |
 | #7 | Go | 5.1% | 21,334 |
 | #8 | Vuejs Component | 4.3% | 17,889 |
-| — | 其他 | 10.3% | 42,858 |
+| — | 其他 | 10.3% | 42,860 |
 
 <!-- LANGUAGES:END -->
 
@@ -113,7 +113,7 @@ pie showData
 <div align="center">
 
 <sub>统计由 GitHub Actions 每日自动刷新 &middot; 最近刷新:<!-- UPDATED:START -->
-2026-10-16 08:16 UTC
+2026-10-17 07:52 UTC
 <!-- UPDATED:END --></sub>
 
 </div>
