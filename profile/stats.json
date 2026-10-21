@@ -1,15 +1,15 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 1030,
+  "recent_commits": 1024,
   "active_repos": 18,
-  "public_repos": 39,
+  "public_repos": 40,
   "members": 10,
-  "updated_at": "2026-10-20 08:38 UTC",
+  "updated_at": "2026-10-21 08:39 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 890
+      "commits": 880
     },
     {
       "login": "mgHurryo",
@@ -17,7 +17,7 @@
     },
     {
       "login": "kemiamu",
-      "commits": 35
+      "commits": 38
     },
     {
       "login": "Chonghua-05",
@@ -53,6 +53,10 @@
     },
     {
       "login": "Nel-S",
+      "commits": 1
+    },
+    {
+      "login": "Rui-Hasekura",
       "commits": 1
     },
     {
@@ -103,7 +107,7 @@
     "2026-09-21": 9,
     "2026-08-02": 41,
     "2026-08-27": 7,
-    "2026-10-19": 27,
+    "2026-10-19": 28,
     "2026-10-17": 3,
     "2026-10-16": 2,
     "2026-10-15": 2,
@@ -144,15 +148,15 @@
     "2026-07-28": 10,
     "2026-07-27": 15,
     "2026-07-26": 29,
-    "2026-07-23": 23,
-    "2026-07-22": 7,
+    "2026-07-23": 20,
+    "2026-10-20": 3,
     "2026-10-18": 10
   },
   "languages": {
     "Java": 170900,
-    "JSON": 31462,
+    "JSON": 31457,
     "TypeScript": 25447,
-    "Markdown": 8825,
+    "Markdown": 8824,
     "YAML": 6356,
     "Gradle": 2114,
     "CSS": 3285,
@@ -165,7 +169,7 @@
     "Go": 21334,
     "Vuejs Component": 17889,
     "XML": 1145,
-    "Rust": 10621,
+    "Rust": 10632,
     "SQL": 412,
     "JavaScript": 5177,
     "TOML": 181,
