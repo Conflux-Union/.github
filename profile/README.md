@@ -29,7 +29,7 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 <!-- STATS:START -->
 | 指标 | 数值 |
 |---|---|
-| 近 90 天提交总数 | **1024** |
+| 近 90 天提交总数 | **1000** |
 | 公开仓库总数 | **40** |
 | 活跃仓库数(90d) | **18** |
 | 成员总数 | **10** |
@@ -44,10 +44,10 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 ```mermaid
 xychart-beta
     title "近 90 天每周提交数(按自然周聚合)"
-    x-axis ["07-24", "07-30", "08-06", "08-13", "08-20", "08-27", "09-03", "09-10", "09-17", "09-24", "10-01", "10-08", "10-15"]
-    y-axis "提交数" 0 --> 154
-    bar [129, 125, 86, 64, 88, 74, 66, 73, 75, 54, 77, 45, 48]
-    line [129, 125, 86, 64, 88, 74, 66, 73, 75, 54, 77, 45, 48]
+    x-axis ["07-25", "07-31", "08-07", "08-14", "08-21", "08-28", "09-04", "09-11", "09-18", "09-25", "10-02", "10-09", "10-16"]
+    y-axis "提交数" 0 --> 156
+    bar [130, 118, 78, 71, 82, 78, 57, 71, 84, 63, 68, 38, 46]
+    line [130, 118, 78, 71, 82, 78, 57, 71, 84, 63, 68, 38, 46]
 ```
 
 <!-- CHART_DAILY:END -->
@@ -59,20 +59,19 @@ xychart-beta
 <!-- RANKING:START -->
 | 排名 | 成员 | 提交数 |
 |---:|:---|---:|
-| 🥇 | [@Trirrin](https://github.com/Trirrin) | 880 |
+| 🥇 | [@Trirrin](https://github.com/Trirrin) | 859 |
 | 🥈 | [@mgHurryo](https://github.com/mgHurryo) | 53 |
 | 🥉 | [@kemiamu](https://github.com/kemiamu) _(外部贡献者)_ | 38 |
 | #4 | [@Chonghua-05](https://github.com/Chonghua-05) | 18 |
-| #5 | [@xpple](https://github.com/xpple) _(外部贡献者)_ | 18 |
+| #5 | [@xpple](https://github.com/xpple) _(外部贡献者)_ | 16 |
 | #6 | [@late-maple](https://github.com/late-maple) _(外部贡献者)_ | 5 |
 | #7 | [@Nero978](https://github.com/Nero978) _(外部贡献者)_ | 3 |
 | #8 | [@Spagles](https://github.com/Spagles) _(外部贡献者)_ | 2 |
 | #9 | [@Whisperlyric](https://github.com/Whisperlyric) _(外部贡献者)_ | 2 |
-| #10 | [@Bishops-exe](https://github.com/Bishops-exe) _(外部贡献者)_ | 1 |
-| #11 | [@Copilot](https://github.com/Copilot) _(外部贡献者)_ | 1 |
-| #12 | [@Nel-S](https://github.com/Nel-S) _(外部贡献者)_ | 1 |
-| #13 | [@Rui-Hasekura](https://github.com/Rui-Hasekura) _(外部贡献者)_ | 1 |
-| #14 | [@zQianWan](https://github.com/zQianWan) | 1 |
+| #10 | [@Copilot](https://github.com/Copilot) _(外部贡献者)_ | 1 |
+| #11 | [@Nel-S](https://github.com/Nel-S) _(外部贡献者)_ | 1 |
+| #12 | [@Rui-Hasekura](https://github.com/Rui-Hasekura) _(外部贡献者)_ | 1 |
+| #13 | [@zQianWan](https://github.com/zQianWan) | 1 |
 
 <!-- RANKING:END -->
 
@@ -87,12 +86,12 @@ pie showData
     "Java" : 170900
     "C" : 35143
     "C/C++ Header" : 31826
-    "JSON" : 31457
+    "JSON" : 31461
     "TypeScript" : 25447
     "Kotlin" : 23061
     "Go" : 21334
     "Vuejs Component" : 17889
-    "Others" : 44705
+    "Others" : 44706
 ```
 
 | 排名 | 语言 | 占比 | 代码行数 |
@@ -100,12 +99,12 @@ pie showData
 | #1 | Java | 42.5% | 170,900 |
 | #2 | C | 8.7% | 35,143 |
 | #3 | C/C++ Header | 7.9% | 31,826 |
-| #4 | JSON | 7.8% | 31,457 |
+| #4 | JSON | 7.8% | 31,461 |
 | #5 | TypeScript | 6.3% | 25,447 |
 | #6 | Kotlin | 5.7% | 23,061 |
 | #7 | Go | 5.3% | 21,334 |
 | #8 | Vuejs Component | 4.5% | 17,889 |
-| — | 其他 | 11.1% | 44,705 |
+| — | 其他 | 11.1% | 44,706 |
 
 <!-- LANGUAGES:END -->
 
@@ -114,7 +113,7 @@ pie showData
 <div align="center">
 
 <sub>统计由 GitHub Actions 每日自动刷新 &middot; 最近刷新:<!-- UPDATED:START -->
-2026-10-21 08:39 UTC
+2026-10-22 08:42 UTC
 <!-- UPDATED:END --></sub>
 
 </div>
