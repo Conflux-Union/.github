@@ -6,7 +6,7 @@ name: Changelog
 #
 #   jobs:
 #     Generate-Changelog:
-#       uses: Conflux-Union/.github/.github/workflows/changelog.yml@v3
+#       uses: Conflux-Union/.github/.github/workflows/changelog.yml@v4
 #       with:
 #         tag: v1.2.3
 #         exclude: |
@@ -53,7 +53,7 @@ on:
         description: 'Model behind the changelog agent.'
         required: false
         type: string
-        default: 'mimo-v2.6-flash'
+        default: 'deepseek-flash'
       api-base:
         description: 'Anthropic-compatible relay base URL.'
         required: false
@@ -63,7 +63,7 @@ on:
         description: 'Branch or tag of this repository the agent script is cloned from.'
         required: false
         type: string
-        default: 'v3'
+        default: 'v4'
       artifact-name:
         description: 'Name of the uploaded changelog artifact.'
         required: false
@@ -88,8 +88,8 @@ on:
         description: 'Branch or tag of this repository the agent script is cloned from.'
         required: false
         type: string
-        default: 'v3'
-permissions:
+        default: 'v4'
+    permissions:
   contents: read
   issues: read
   pull-requests: read
@@ -104,7 +104,7 @@ jobs:
           fetch-depth: 0
       - name: Clone changelog tooling
         env:
-          TOOLING_REF: ${{ inputs.tooling-ref || 'v3' }}
+          TOOLING_REF: ${{ inputs.tooling-ref || 'v4' }}
         run: |
           set -euo pipefail
           git clone --depth 1 --branch "$TOOLING_REF" \
@@ -122,7 +122,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           MIMO_API_KEY: ${{ secrets.mimo-api-key || secrets.MIMO_API_KEY }}
-          MIMO_MODEL: ${{ inputs.model || 'mimo-v2.6-flash' }}
+          MIMO_MODEL: ${{ inputs.model || 'deepseek-flash' }}
           MIMO_API_BASE: ${{ inputs.api-base || 'https://cf.api.fan' }}
           RELEASE_TAG: ${{ github.event.release.tag_name }}
           CURRENT_TAG_INPUT: ${{ inputs.tag }}

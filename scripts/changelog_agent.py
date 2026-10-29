@@ -3,7 +3,7 @@
 
 Instead of stuffing every piece of context into one passive prompt, this
 script runs a tool-calling agent against an Anthropic-compatible Messages
-API (default endpoint: the cf.api.fan relay serving the MiMo model family;
+API (default endpoint: the cf.api.fan relay, default model deepseek-flash;
 override with MIMO_API_BASE / MIMO_MODEL). The model investigates the checked-out repository with
 read-only tools -- a strictly gated read-only bash command runner and a
 bounded file reader -- until it can decide which changes are user-visible,
@@ -49,7 +49,7 @@ from threading import Lock, Thread
 import anthropic
 
 ANTHROPIC_BASE_URL_DEFAULT = "https://cf.api.fan"
-MODEL_DEFAULT = "mimo-v2.6-flash"
+MODEL_DEFAULT = "deepseek-flash"
 MAX_TOOL_OUTPUT_CHARS = 24_000
 
 
