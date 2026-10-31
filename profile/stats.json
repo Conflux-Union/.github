@@ -1,23 +1,23 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 878,
+  "recent_commits": 867,
   "active_repos": 16,
   "public_repos": 39,
   "members": 10,
-  "updated_at": "2026-10-30 10:08 UTC",
+  "updated_at": "2026-10-31 09:44 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 777
+      "commits": 768
     },
     {
       "login": "mgHurryo",
-      "commits": 55
+      "commits": 54
     },
     {
       "login": "Chonghua-05",
-      "commits": 18
+      "commits": 19
     },
     {
       "login": "xpple",
@@ -30,10 +30,6 @@
     {
       "login": "Nero978",
       "commits": 3
-    },
-    {
-      "login": "Spagles",
-      "commits": 2
     },
     {
       "login": "Whisperlyric",
@@ -94,8 +90,9 @@
     "2026-10-13": 9,
     "2026-10-12": 9,
     "2026-09-21": 9,
-    "2026-08-02": 41,
+    "2026-08-02": 39,
     "2026-08-27": 7,
+    "2026-10-31": 1,
     "2026-10-30": 4,
     "2026-10-29": 12,
     "2026-10-28": 15,
@@ -135,14 +132,13 @@
     "2026-08-08": 6,
     "2026-08-07": 9,
     "2026-08-04": 4,
-    "2026-08-03": 21,
-    "2026-08-01": 10
+    "2026-08-03": 21
   },
   "languages": {
-    "Java": 181778,
-    "JSON": 29361,
+    "Java": 181935,
+    "JSON": 29364,
     "TypeScript": 23990,
-    "Markdown": 8292,
+    "Markdown": 8305,
     "YAML": 6462,
     "Gradle": 2114,
     "CSS": 1806,
