@@ -1,6 +1,9 @@
 <div align="center">
 
-<img src="https://avatars.githubusercontent.com/u/202734162?s=200&v=4" width="120" alt="Conflux-Union" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Conflux-Union/.github/main/profile/assets/logo-dark.png" />
+  <img src="https://raw.githubusercontent.com/Conflux-Union/.github/main/profile/assets/logo-light.png" width="120" alt="Conflux-Union" />
+</picture>
 
 # Conflux-Union
 
