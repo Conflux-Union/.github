@@ -89,7 +89,7 @@ on:
         required: false
         type: string
         default: 'v4'
-    permissions:
+permissions:
   contents: read
   issues: read
   pull-requests: read
