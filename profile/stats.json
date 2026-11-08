@@ -1,15 +1,15 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 860,
+  "recent_commits": 841,
   "active_repos": 16,
   "public_repos": 39,
   "members": 10,
-  "updated_at": "2026-11-07 10:20 UTC",
+  "updated_at": "2026-11-08 10:29 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 787
+      "commits": 768
     },
     {
       "login": "mgHurryo",
@@ -125,13 +125,11 @@
     "2026-08-17": 1,
     "2026-08-13": 6,
     "2026-08-12": 25,
-    "2026-08-11": 13,
-    "2026-08-10": 3,
-    "2026-08-09": 16
+    "2026-08-11": 13
   },
   "languages": {
     "Java": 193603,
-    "JSON": 24266,
+    "JSON": 24268,
     "TypeScript": 17451,
     "Markdown": 9765,
     "YAML": 6442,
