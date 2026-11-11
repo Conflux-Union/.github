@@ -1,23 +1,23 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 820,
+  "recent_commits": 862,
   "active_repos": 16,
   "public_repos": 39,
   "members": 10,
-  "updated_at": "2026-11-10 11:19 UTC",
+  "updated_at": "2026-11-11 11:06 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 747
+      "commits": 755
+    },
+    {
+      "login": "Chonghua-05",
+      "commits": 57
     },
     {
       "login": "mgHurryo",
       "commits": 28
-    },
-    {
-      "login": "Chonghua-05",
-      "commits": 23
     },
     {
       "login": "xpple",
@@ -86,9 +86,13 @@
     "2026-10-12": 9,
     "2026-09-21": 9,
     "2026-11-01": 24,
-    "2026-10-29": 13,
+    "2026-10-29": 14,
     "2026-08-27": 7,
-    "2026-11-06": 4,
+    "2026-11-10": 13,
+    "2026-11-09": 7,
+    "2026-11-08": 17,
+    "2026-11-07": 22,
+    "2026-11-06": 8,
     "2026-11-05": 2,
     "2026-11-04": 12,
     "2026-11-02": 23,
@@ -123,16 +127,15 @@
     "2026-08-21": 10,
     "2026-08-20": 13,
     "2026-08-17": 1,
-    "2026-08-13": 6,
-    "2026-08-12": 17
+    "2026-08-13": 1
   },
   "languages": {
-    "Java": 193603,
-    "JSON": 24266,
+    "Java": 195480,
+    "JSON": 24265,
     "TypeScript": 17451,
-    "Markdown": 9765,
-    "YAML": 6442,
-    "Gradle": 2112,
+    "Markdown": 9807,
+    "YAML": 6444,
+    "Gradle": 2267,
     "CSS": 1806,
     "Bourne Shell": 971,
     "Properties": 386,
@@ -148,12 +151,13 @@
     "JavaScript": 5000,
     "TOML": 164,
     "ProGuard": 70,
-    "C": 35888,
+    "C": 44583,
     "Python": 2666,
     "CMake": 265,
     "SVG": 88,
     "CSV": 30,
-    "C/C++ Header": 31826,
-    "TeX": 661
+    "C/C++ Header": 35468,
+    "TeX": 661,
+    "make": 35
   }
 }
