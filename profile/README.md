@@ -32,7 +32,7 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 <!-- STATS:START -->
 | 指标 | 数值 |
 |---|---|
-| 近 90 天提交总数 | **873** |
+| 近 90 天提交总数 | **863** |
 | 公开仓库总数 | **39** |
 | 活跃仓库数(90d) | **16** |
 | 成员总数 | **10** |
@@ -47,10 +47,10 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 ```mermaid
 xychart-beta
     title "近 90 天每周提交数(按自然周聚合)"
-    x-axis ["08-19", "08-25", "09-01", "09-08", "09-15", "09-22", "09-29", "10-06", "10-13", "10-20", "10-27", "11-03", "11-10"]
-    y-axis "提交数" 0 --> 121
-    bar [60, 81, 78, 91, 48, 68, 90, 44, 18, 44, 101, 91, 51]
-    line [60, 81, 78, 91, 48, 68, 90, 44, 18, 44, 101, 91, 51]
+    x-axis ["08-20", "08-26", "09-02", "09-09", "09-16", "09-23", "09-30", "10-07", "10-14", "10-21", "10-28", "11-04", "11-11"]
+    y-axis "提交数" 0 --> 130
+    bar [75, 62, 86, 74, 54, 61, 94, 49, 9, 49, 109, 104, 25]
+    line [75, 62, 86, 74, 54, 61, 94, 49, 9, 49, 109, 104, 25]
 ```
 
 <!-- CHART_DAILY:END -->
@@ -62,8 +62,8 @@ xychart-beta
 <!-- RANKING:START -->
 | 排名 | 成员 | 提交数 |
 |---:|:---|---:|
-| 🥇 | [@Trirrin](https://github.com/Trirrin) | 769 |
-| 🥈 | [@Chonghua-05](https://github.com/Chonghua-05) | 56 |
+| 🥇 | [@Trirrin](https://github.com/Trirrin) | 761 |
+| 🥈 | [@Chonghua-05](https://github.com/Chonghua-05) | 54 |
 | 🥉 | [@mgHurryo](https://github.com/mgHurryo) | 28 |
 | #4 | [@xpple](https://github.com/xpple) _(外部贡献者)_ | 8 |
 | #5 | [@late-maple](https://github.com/late-maple) _(外部贡献者)_ | 5 |
@@ -86,7 +86,7 @@ pie showData
     "C" : 45508
     "C/C++ Header" : 35468
     "Kotlin" : 24483
-    "JSON" : 24300
+    "JSON" : 24299
     "TypeScript" : 17451
     "Go" : 17443
     "Vuejs Component" : 11470
@@ -99,7 +99,7 @@ pie showData
 | #2 | C | 10.9% | 45,508 |
 | #3 | C/C++ Header | 8.5% | 35,468 |
 | #4 | Kotlin | 5.8% | 24,483 |
-| #5 | JSON | 5.8% | 24,300 |
+| #5 | JSON | 5.8% | 24,299 |
 | #6 | TypeScript | 4.2% | 17,451 |
 | #7 | Go | 4.2% | 17,443 |
 | #8 | Vuejs Component | 2.7% | 11,470 |
@@ -112,7 +112,7 @@ pie showData
 <div align="center">
 
 <sub>统计由 GitHub Actions 每日自动刷新 &middot; 最近刷新:<!-- UPDATED:START -->
-2026-11-16 11:33 UTC
+2026-11-17 11:59 UTC
 <!-- UPDATED:END --></sub>
 
 </div>
