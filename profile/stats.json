@@ -4,12 +4,12 @@
   "recent_commits": 845,
   "active_repos": 16,
   "public_repos": 39,
-  "members": 10,
-  "updated_at": "2026-11-18 11:51 UTC",
+  "members": 11,
+  "updated_at": "2026-11-19 11:48 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 746
+      "commits": 749
     },
     {
       "login": "Chonghua-05",
@@ -20,11 +20,11 @@
       "commits": 28
     },
     {
-      "login": "xpple",
-      "commits": 8
+      "login": "late-maple",
+      "commits": 5
     },
     {
-      "login": "late-maple",
+      "login": "xpple",
       "commits": 5
     },
     {
@@ -45,7 +45,7 @@
     }
   ],
   "daily": {
-    "2026-11-14": 3,
+    "2026-11-14": 15,
     "2026-11-11": 12,
     "2026-11-03": 13,
     "2026-10-04": 24,
@@ -85,6 +85,8 @@
     "2026-11-01": 24,
     "2026-10-29": 14,
     "2026-08-27": 7,
+    "2026-11-19": 1,
+    "2026-11-15": 1,
     "2026-11-13": 2,
     "2026-11-12": 8,
     "2026-11-10": 26,
@@ -123,16 +125,15 @@
     "2026-08-24": 20,
     "2026-08-23": 2,
     "2026-08-22": 1,
-    "2026-08-21": 10,
-    "2026-08-20": 7
+    "2026-08-21": 3
   },
   "languages": {
-    "Java": 203695,
-    "JSON": 24298,
+    "Java": 205388,
+    "JSON": 24349,
     "TypeScript": 17451,
-    "Markdown": 9846,
+    "Markdown": 9858,
     "YAML": 6455,
-    "Gradle": 2278,
+    "Gradle": 2308,
     "CSS": 1806,
     "Bourne Shell": 971,
     "Properties": 386,
@@ -148,7 +149,7 @@
     "JavaScript": 5000,
     "TOML": 164,
     "ProGuard": 70,
-    "C": 45508,
+    "C": 46000,
     "Python": 2666,
     "CMake": 265,
     "SVG": 88,
