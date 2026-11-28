@@ -1,19 +1,19 @@
 {
   "org": "Conflux-Union",
   "window_days": 90,
-  "recent_commits": 864,
+  "recent_commits": 862,
   "active_repos": 16,
   "public_repos": 39,
   "members": 11,
-  "updated_at": "2026-11-27 12:35 UTC",
+  "updated_at": "2026-11-28 11:55 UTC",
   "ranking": [
     {
       "login": "Trirrin",
-      "commits": 765
+      "commits": 756
     },
     {
       "login": "Chonghua-05",
-      "commits": 62
+      "commits": 69
     },
     {
       "login": "halfkite",
@@ -83,7 +83,8 @@
     "2026-09-21": 9,
     "2026-11-01": 24,
     "2026-10-29": 14,
-    "2026-11-26": 1,
+    "2026-11-27": 6,
+    "2026-11-26": 5,
     "2026-11-25": 21,
     "2026-11-24": 35,
     "2026-11-23": 10,
@@ -123,11 +124,11 @@
     "2026-09-05": 4,
     "2026-09-04": 3,
     "2026-08-31": 15,
-    "2026-08-30": 13
+    "2026-08-30": 1
   },
   "languages": {
-    "Java": 215845,
-    "JSON": 24757,
+    "Java": 216035,
+    "JSON": 24759,
     "TypeScript": 17451,
     "Markdown": 11009,
     "YAML": 6643,

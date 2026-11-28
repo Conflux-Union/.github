@@ -32,7 +32,7 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 <!-- STATS:START -->
 | 指标 | 数值 |
 |---|---|
-| 近 90 天提交总数 | **864** |
+| 近 90 天提交总数 | **862** |
 | 公开仓库总数 | **39** |
 | 活跃仓库数(90d) | **16** |
 | 成员总数 | **11** |
@@ -47,10 +47,10 @@ Conflux-Union 是一个由社区驱动的组织,专注于:
 ```mermaid
 xychart-beta
     title "近 90 天每周提交数(按自然周聚合)"
-    x-axis ["08-30", "09-05", "09-12", "09-19", "09-26", "10-03", "10-10", "10-17", "10-24", "10-31", "11-07", "11-14", "11-21"]
-    y-axis "提交数" 0 --> 124
-    bar [77, 78, 61, 73, 77, 63, 32, 20, 77, 87, 104, 42, 73]
-    line [77, 78, 61, 73, 77, 63, 32, 20, 77, 87, 104, 42, 73]
+    x-axis ["08-31", "09-06", "09-13", "09-20", "09-27", "10-04", "10-11", "10-18", "10-25", "11-01", "11-08", "11-15", "11-22"]
+    y-axis "提交数" 0 --> 127
+    bar [68, 101, 48, 68, 77, 58, 30, 23, 77, 106, 95, 27, 83]
+    line [68, 101, 48, 68, 77, 58, 30, 23, 77, 106, 95, 27, 83]
 ```
 
 <!-- CHART_DAILY:END -->
@@ -62,8 +62,8 @@ xychart-beta
 <!-- RANKING:START -->
 | 排名 | 成员 | 提交数 |
 |---:|:---|---:|
-| 🥇 | [@Trirrin](https://github.com/Trirrin) | 765 |
-| 🥈 | [@Chonghua-05](https://github.com/Chonghua-05) | 62 |
+| 🥇 | [@Trirrin](https://github.com/Trirrin) | 756 |
+| 🥈 | [@Chonghua-05](https://github.com/Chonghua-05) | 69 |
 | 🥉 | [@halfkite](https://github.com/halfkite) | 19 |
 | #4 | [@late-maple](https://github.com/late-maple) _(外部贡献者)_ | 5 |
 | #5 | [@mgHurryo](https://github.com/mgHurryo) | 5 |
@@ -82,10 +82,10 @@ xychart-beta
 ```mermaid
 pie showData
     title 语言占比(代码行数,活跃仓库合计)
-    "Java" : 215845
+    "Java" : 216035
     "C" : 46043
     "C/C++ Header" : 35468
-    "JSON" : 24757
+    "JSON" : 24759
     "Kotlin" : 24483
     "TypeScript" : 17451
     "Go" : 17443
@@ -95,10 +95,10 @@ pie showData
 
 | 排名 | 语言 | 占比 | 代码行数 |
 |---:|:---|---:|---:|
-| #1 | Java | 49.7% | 215,845 |
+| #1 | Java | 49.7% | 216,035 |
 | #2 | C | 10.6% | 46,043 |
 | #3 | C/C++ Header | 8.2% | 35,468 |
-| #4 | JSON | 5.7% | 24,757 |
+| #4 | JSON | 5.7% | 24,759 |
 | #5 | Kotlin | 5.6% | 24,483 |
 | #6 | TypeScript | 4.0% | 17,451 |
 | #7 | Go | 4.0% | 17,443 |
@@ -112,7 +112,7 @@ pie showData
 <div align="center">
 
 <sub>统计由 GitHub Actions 每日自动刷新 &middot; 最近刷新:<!-- UPDATED:START -->
-2026-11-27 12:35 UTC
+2026-11-28 11:55 UTC
 <!-- UPDATED:END --></sub>
 
 </div>
